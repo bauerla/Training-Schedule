@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
+
+	resource :calendar, only: [:show], controller: :calendar
+
+	get 'calendar/show'
 	get 'main/index'
 
-	root 'main#index'
+
+	root 'calendar#show'
+	
 	# The priority is based upon order of creation: first created -> highest priority.
 	# See how all your routes lay out with "rake routes".
 
