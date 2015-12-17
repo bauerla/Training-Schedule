@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 	resource :calendar, only: [:show], controller: :calendar
+	resource :events
 
 	get 'calendar/show'
 	get 'main/index'
