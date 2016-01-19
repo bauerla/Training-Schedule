@@ -12,15 +12,30 @@
       </ul>
     </div>
   <% end %>
+
   <p>
-    <%= f.label :title %><br>
+    <%= f.label :title %><br />
     <%= f.text_field :title %>
   </p>
   <p>
-    <%= f.label :text %><br>
+    <%= f.label :text %><br />
     <%= f.text_area :text %>
   </p>
+
+  <h3>Aloitus aika</h3>
+  <p>
+    <%= f.label :starttime %><br />
+    <%= datetime_select('starttime', 'date', :order => [:day, :month, :year, :hour,:minute]) %>
+  </p>
+  <h3>Lopetus aika</h3>
+  <p>
+    <%= f.label :endtime %><br />
+    <%= datetime_select('endtime', 'date', :order => [:day, :month, :year, :hour,:minute]) %>
+  </p>
+  <br />
+
   <p>
     <%= f.submit %>
   </p>
+  
 <% end %>
