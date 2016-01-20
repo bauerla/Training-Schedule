@@ -3,6 +3,17 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 table {
+	width: 100%;
+	table-layout: fixed;
+
+	tr {
+		height: 100px;
+	}
+
+	td {
+		margin: 50px;
+	}
+
 	.day_headers {
 		th {
 			background-color: #87A88B;
@@ -16,5 +27,4 @@ table {
 		text-decoration: underline;
 		color: #007817;
 	}
-
 }

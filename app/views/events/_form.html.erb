@@ -12,15 +12,38 @@
       </ul>
     </div>
   <% end %>
+
   <p>
-    <%= f.label :title %><br>
+    <%= f.label :title %><br />
     <%= f.text_field :title %>
   </p>
   <p>
-    <%= f.label :text %><br>
+    <%= f.label :text %><br />
     <%= f.text_area :text %>
   </p>
+
+  <h3>Aloitus aika</h3>
+  <div class="field">
+    <p>
+      <%= f.label :starttime %><br />
+      <%= f.text_field :starttime_date, :placeholder => 'vvvv-kk-pp', :class => 'datepicker', :size => 10, :maxlength => 10 %> 
+      <%= f.text_field :starttime_time, :placeholder => 'hh:mm', :size => 5, :maxlength => 5 %>
+    </p>
+  </div>
+  <h3>Lopetus aika</h3>
+  <div class="field">
+    <p>
+      <%= f.label :endtime %><br />
+      <%= f.text_field :endtime_date, :placeholder => 'vvvv-kk-pp', :class => 'datepicker', :size => 10, :maxlength => 10 %> 
+      <%= f.text_field :endtime_time, :placeholder => 'hh:mm', :size => 5, :maxlength => 5 %>
+    </p>
+  </div>
+  <br />
+
   <p>
     <%= f.submit %>
   </p>
+
+  <%= debug @event %>
+  
 <% end %>
