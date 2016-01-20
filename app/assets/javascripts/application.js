@@ -16,3 +16,7 @@
 //= require jquery-ui/datepicker-fi
 //= require turbolinks
 //= require_tree .
+
+$(function() {
+    $('.datepicker').datepicker({dateFormat: 'yy-mm-dd'});
+});

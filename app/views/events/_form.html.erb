@@ -23,19 +23,27 @@
   </p>
 
   <h3>Aloitus aika</h3>
-  <p>
-    <%= f.label :starttime %><br />
-    <%= datetime_select('starttime', 'date', :order => [:day, :month, :year, :hour,:minute]) %>
-  </p>
+  <div class="field">
+    <p>
+      <%= f.label :starttime %><br />
+      <%= f.text_field :starttime_date, :placeholder => 'vvvv-kk-pp', :class => 'datepicker', :size => 10, :maxlength => 10 %> 
+      <%= f.text_field :starttime_time, :placeholder => 'hh:mm', :size => 5, :maxlength => 5 %>
+    </p>
+  </div>
   <h3>Lopetus aika</h3>
-  <p>
-    <%= f.label :endtime %><br />
-    <%= datetime_select('endtime', 'date', :order => [:day, :month, :year, :hour,:minute]) %>
-  </p>
+  <div class="field">
+    <p>
+      <%= f.label :endtime %><br />
+      <%= f.text_field :endtime_date, :placeholder => 'vvvv-kk-pp', :class => 'datepicker', :size => 10, :maxlength => 10 %> 
+      <%= f.text_field :endtime_time, :placeholder => 'hh:mm', :size => 5, :maxlength => 5 %>
+    </p>
+  </div>
   <br />
 
   <p>
     <%= f.submit %>
   </p>
+
+  <%= debug @event %>
   
 <% end %>
