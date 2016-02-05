@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
 
 	resource :calendar, only: [:show], controller: :calendar
-	resource :events
+	resources :events
+	resource :main
 
 	get 'calendar/show'
-	get 'main/index'
+	get 'main/index', as: 'start_page'
+	get 'events/show'
+	get 'events/index'
 
 
 	root 'calendar#show'

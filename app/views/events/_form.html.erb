@@ -37,12 +37,20 @@
       <%= f.text_field :endtime_date, :placeholder => 'vvvv-kk-pp', :class => 'datepicker', :size => 10, :maxlength => 10 %> 
       <%= f.text_field :endtime_time, :placeholder => 'hh:mm', :size => 5, :maxlength => 5 %>
     </p>
+    <p>
+    <%= f.submit "Add Event", class: "btn btn-small btn-success", style: "color: white"%>
+    </p>
   </div>
   <br />
 
+  <!-- Navigations -->
+
   <p>
-    <%= f.submit %>
-  </p>
+  <%= link_to 'Cancel', events_path, class: "btn btn-small btn-danger", style: "color: white" %>
+  <p/>
+  <p>
+  <%= link_to '-> Calendar (Cancel)', calendar_path, class: "btn btn-small btn-warning", style: "color: white" %>
+  <p/>
 
   <%= debug @event %>
   

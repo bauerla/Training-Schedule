@@ -1,0 +1,23 @@
+<h1>All Events</h1>
+ 
+ <div class="back_to_cal">
+  <%= link_to 'New Event', new_event_path, class: "btn btn-small btn-success", style: "color: white" %>
+</div>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+  </tr>
+
+  <% @events.each do |ev| %>
+    <tr>
+      <td><%= ev.title %></td>
+      <td><%= ev.text %></td>
+    </tr>
+  <% end %>
+</table>
+
+<div class="back_to_cal">
+  <%= link_to 'Back to Calendar', calendar_path, class: "btn btn-small btn-primary", style: "color: white" %>
+</div>

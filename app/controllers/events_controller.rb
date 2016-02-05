@@ -1,10 +1,10 @@
 class EventsController < ApplicationController
-	event = Event.new
-	event.starttime = @starttime
-	event.endtime = @endtime
+	#event = Event.new
+	#event.starttime = @starttime
+	#event.endtime = @endtime
 
 	def index
-		@event = Event.all
+		@events = Event.all
 	end
 
 	def show
