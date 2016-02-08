@@ -2,29 +2,53 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-table {
-	width: 100%;
-	table-layout: fixed;
+.calendar {
+	&.table {
+		width: 100%;
+		table-layout: fixed;
 
-	tr {
-		height: 100px;
-	}
+		tr {
+			height: 100px;
+		}
 
-	td {
-		margin: 50px;
-	}
+		td {
+			margin: 50px;
+		}
 
-	.day_headers {
-		th {
-			background-color: #87A88B;
+		.day_headers {
+			height: 30px;
+			th {
+				color: white;
+				text-align: center;
+				background-color: #87A88B;
+			}
+		}
+
+		.not-in-month {
+			color: #B1B1B1;
+		}
+		.today {
+			text-decoration: underline;
+			color: #007817;
 		}
 	}
+}
 
-	.not-in-month {
-		color: #B1B1B1;
+.nav {
+	&.pull-left {
+		a {
+			color: green;
+		}
+		&a:active, a:hover {
+			color: black;
+		}
 	}
-	.today {
-		text-decoration: underline;
-		color: #007817;
+	&.pull-right {
+		a {
+			color: white;
+		}
+		&a:active, a:hover {
+			color: black;
+		}
 	}
 }

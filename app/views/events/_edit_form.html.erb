@@ -1,4 +1,4 @@
-<%= form_for @event do |f| %>
+<%= form_for :event, url: event_path(@event), method: :patch do |f| %>
   <% if @event.errors.any? %>
     <div id="error_explanation">
       <h2>
@@ -12,7 +12,6 @@
       </ul>
     </div>
   <% end %>
-
   <p>
     <%= f.label :title %><br />
     <%= f.text_field :title %>
@@ -21,12 +20,11 @@
     <%= f.label :text %><br />
     <%= f.text_area :text %>
   </p>
-
   <h3>Aloitus aika</h3>
   <div class="field">
     <p>
       <%= f.label :starttime %><br />
-      <%= f.text_field :starttime_date, :placeholder => 'vvvv-kk-pp', :class => 'datepicker', :size => 10, :maxlength => 10 %> 
+      <%= f.text_field :starttime_date, :placeholder => 'vvvv-kk-pp', :class => 'datepicker', :size => 10, :maxlength => 10 %>
       <%= f.text_field :starttime_time, :placeholder => 'hh:mm', :size => 5, :maxlength => 5 %>
     </p>
   </div>
@@ -34,24 +32,14 @@
   <div class="field">
     <p>
       <%= f.label :endtime %><br />
-      <%= f.text_field :endtime_date, :placeholder => 'vvvv-kk-pp', :class => 'datepicker', :size => 10, :maxlength => 10 %> 
+      <%= f.text_field :endtime_date, :placeholder => 'vvvv-kk-pp', :class => 'datepicker', :size => 10, :maxlength => 10 %>
       <%= f.text_field :endtime_time, :placeholder => 'hh:mm', :size => 5, :maxlength => 5 %>
     </p>
     <p>
-    <%= f.submit "Add Event", class: "btn btn-small btn-success", style: "color: white"%>
+      <%= f.submit "Save Changes", class: "btn btn-small btn-success", style: "color: white"%>
     </p>
   </div>
-  <br />
-
-  <!-- Navigations -->
-
   <p>
-  <%= link_to 'Cancel', events_path, class: "btn btn-small btn-danger", style: "color: white" %>
-  <p/>
-  <p>
-  <%= link_to '-> Calendar (Cancel)', calendar_path, class: "btn btn-small btn-warning", style: "color: white" %>
-  <p/>
-
-  <!-- <%= debug @event %> -->
-  
+    <%= link_to 'Back', events_path, class: "btn btn-small btn-primary", style: "color: white"%>
+  </p>
 <% end %>

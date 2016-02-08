@@ -3,17 +3,19 @@ class Event < ActiveRecord::Base
 	# add the accessors for the fields
 	attr_accessor :starttime_date, :starttime_time, :endtime_date, :endtime_time
 
-	# callbacks to datetime values
-	after_initialize :get_datetimes # convert db format to accessors
-	before_validation :set_datetimes # convert accessors back to db format
-
 	# validation
 	validates :title, presence: true,
 		length: { minimum: 5 }
 	validates_format_of :starttime_time, :endtime_time, :with => /\d{1,2}:\d{2}/
 
+	# callbacks to datetime values
+	after_initialize :get_datetimes # convert db format to accessors
+	before_validation :set_datetimes # convert accessors back to db format
+
 	protected
 	def get_datetimes
+		puts 'get_datetimes'
+		logger.warn 'get_datetimes'
 		self.starttime ||= Time.now  # if the starttime time not set, set it to now
 		self.endtime ||= self.starttime + 60*60 # if the endtime not set increment hour from starttime
 
@@ -25,6 +27,8 @@ class Event < ActiveRecord::Base
 	end
 
 	def set_datetimes
+		puts 'tultiin set_datetimes'
+		logger.warn 'tultiin set_datetimes'
 		self.starttime = "#{self.starttime_date} #{self.starttime_time}:00" # convert the two fields back to db
 		self.endtime = "#{self.endtime_date} #{self.endtime_time}:00" # convert the two fields back to db
 	end

@@ -16,3 +16,7 @@
  *= require_self
  */
 
+ .ui-datepicker table tr {
+	height: 1px;
+ }
+

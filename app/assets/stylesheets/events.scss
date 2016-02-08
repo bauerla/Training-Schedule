@@ -2,8 +2,51 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-/*
-table tr {
-	height: 0px;
+.list_events {
+
+	table th {
+		background-color: #87A88B;
+		text-align: center;
+		color: white;
+		border: 1px solid rgba(25, 25, 25, 0.1);
+	}
+
+	table tr {
+		height: 0px;
+	}
+
+	table {
+	    width: auto;
+	    height: auto;
+	    border-collapse: collapse;
+	    table-layout: fixed; 
+
+	    tr {
+			height: 50px;
+		}
+
+		.events_headers {
+			height: 37px; // somehow calendars headers have + 7px to 30px
+		}
+
+		td {
+		    border: 1px solid rgba(25, 25, 25, 0.1);
+		    padding: 0px 10px;
+		}
+
+		td:nth-child(5), td:nth-child(6) {
+			width: 50px;
+			padding: auto;
+			text-align: center;
+			border: none;
+		}
+	}
 }
-*/
+
+.add_new_event {
+	margin: 25px 0px;
+}
+
+.back_to_cal {
+	margin-top: 25px;
+}
