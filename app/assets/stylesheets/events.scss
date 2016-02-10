@@ -25,6 +25,10 @@
 			height: 50px;
 		}
 
+		th {
+			min-width: 150px;
+		}
+
 		.events_headers {
 			height: 37px; // somehow calendars headers have + 7px to 30px
 		}
@@ -32,10 +36,12 @@
 		td {
 		    border: 1px solid rgba(25, 25, 25, 0.1);
 		    padding: 0px 10px;
+		    min-width: 150px;
 		}
 
 		td:nth-child(5), td:nth-child(6), td:nth-child(7) {
 			width: auto;
+			min-width: 0;
 			padding: 1px;
 			text-align: center;
 			border: none;
@@ -52,4 +58,8 @@
 
 .back_to_cal {
 	margin-top: 25px;
+}
+
+.no_events {
+	color: #656565;
 }

@@ -2,53 +2,69 @@
 <div class="events_index">
 
   <div class="add_new_event">
-    <%= link_to 'New Event', new_event_path, class: "btn btn-md btn-success", style: "color: white" %>
+    <%= link_to new_event_path, class: "btn btn-md btn-success" do %>
+      <i style="font-size:2.0em;" class="glyphicon glyphicon-pencil"></i>
+    <% end %>
   </div>
-  <div class="list_events">
-    <table>
-      <tr class="events_headers">
-        <th>Title</th>
-        <th>Text</th>
-        <th>Start time</th>
-        <th>End time</th>
-      </tr>
-      <% @events.each do |ev| %>
-        <tr>
-          <td><%= ev.title %></td>
-          <td><%= ev.text %></td>
-          <td>
-            <%= ev.starttime_time %>
-            <%= ev.starttime_date %>
-          </td>
-          <td>
-            <%= ev.endtime_time %>
-            <%= ev.endtime_date %>
-          </td>
 
-          <td>
-            <%= link_to 'Show', event_path(ev), class: "btn btn-sm btn-primary", style: "color: white" %>
-          </td>
-          <td>
-            <%= link_to edit_event_path(ev), class: "btn btn-sm btn-warning" do %>
-              <i class="glyphicon glyphicon-cog"></i>
-            <% end %>
-            </td>
-          <td>
-            <%= link_to event_path(ev), 
-                method: :delete,
-                data: { confirm: 'Are you sure want to delete?' }, class: "btn btn-sm btn-danger" do %>
-              <i class="glyphicon glyphicon-remove"></i>
-            <% end %>
-            <%= link_to event_path(ev), method: :delete, data: { confirm: 'Are you sure?' } do %>
-              <i class="glyphicon glyphicon-trash"></i>
-            <% end %>
-            </td>
+  <% if @events.empty? %>
+    <div class="no_events">
+      <h3>No Events found!</h3>
+      <p>Add new events!</p>
+    </div>
+  <% else %>
+    <div class="list_events">
+      <table>
+        <tr class="events_headers">
+          <th>Title</th>
+          <th>Text</th>
+          <th>Start time</th>
+          <th>End time</th>
         </tr>
-      <% end %>
-    </table>
-  </div>
+        <% @events.each do |ev| %>
+          <tr>
+            <td><%= ev.title %></td>
+            <td><%= ev.text %></td>
+            <td>
+              <%= ev.starttime_time %>
+              <%= ev.starttime_date %>
+            </td>
+            <td>
+              <%= ev.endtime_time %>
+              <%= ev.endtime_date %>
+            </td>
+
+            <td>
+              <%= link_to 'Show', event_path(ev), class: "btn btn-sm btn-primary", style: "color: white" %>
+            </td>
+            <td>
+              <%= link_to edit_event_path(ev), class: "btn btn-sm btn-warning" do %>
+                <i class="glyphicon glyphicon-cog"></i>
+              <% end %>
+              </td>
+            <td>
+              <%= link_to event_path(ev), 
+                id: "deletion", 
+                class: "btn btn-sm btn-danger",
+                method: :delete,
+                data: { 
+                      confirm: ' ', 
+                      title: 'Oletko varma ?',
+                      msg: 'Kyseinen harjoitus poistetaan pysyvästi' 
+                      } do %>
+                  <i class="glyphicon glyphicon-trash"></i>
+              <% end %>
+              </td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  <% end %>
   <div class="back_to_cal">
     <%= link_to 'Back to Calendar', calendar_path, class: "btn btn-md btn-primary", style: "color: white" %>
   </div>
   
 </div>
+
+<p> <%= debug @events %> </p>
+

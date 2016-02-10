@@ -32,6 +32,18 @@ Event.create!([{
 	text: "Tunti aerobicia", 
 	starttime: DateTime.new(2016,1,22,19,30), 
 	endtime: DateTime.new(2016,1,22,20,30),
+},
+{
+	title: "Juoksulenkki", 
+	text: "10 km maastolenkki", 
+	starttime: DateTime.new(2016,2,3,18,30), 
+	endtime: DateTime.new(2016,2,3,19,45),
+},
+{
+	title: "Jalkatreeni 2", 
+	text: "Reidet ja takareidet - pyramid", 
+	starttime: DateTime.new(2016,2,5,17,15), 
+	endtime: DateTime.new(2016,2,5,18,45),
 }])
 
 p "Created #{Event.count} events"

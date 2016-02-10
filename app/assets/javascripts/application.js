@@ -16,6 +16,7 @@
 //= require jquery-ui
 //= require jquery-ui/datepicker
 //= require jquery-ui/datepicker-fi
+//= require sweetalert2
 //= require turbolinks
 //= require_tree .
 

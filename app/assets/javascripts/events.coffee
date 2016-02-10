@@ -2,11 +2,12 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-# Override default confirm dialog
+# Override default confirm dialog (Sweet Alert plugin) 
+# http://t4t5.github.io/sweetalert/
 
 $.rails.allowAction = (link) ->
   return true unless link.attr('data-confirm')
-  $.rails.showConfirmDialog(link) # look bellow for implementations
+  $.rails.showConfirmDialog(link) # look below for implementations
   false # always stops the action since code runs asynchronously
 
 $.rails.confirmed = (link) ->
@@ -14,21 +15,20 @@ $.rails.confirmed = (link) ->
   link.trigger('click.rails')
 
 $.rails.showConfirmDialog = (link) ->
-  message = link.attr 'data-confirm'
-  html = """
-         <div class="modal" id="confirmationDialog">
-           <div class="modal-header">
-             <a class="close" data-dismiss="modal">×</a>
-             <h3>#{message}</h3>
-           </div>
-           <div class="modal-body">
-             <p>Are you sure you want to delete?</p>
-           </div>
-           <div class="modal-footer">
-             <a data-dismiss="modal" class="btn">Cancel</a>
-             <a data-dismiss="modal" class="btn btn-primary confirm">OK</a>
-           </div>
-         </div>
-         """
-  $(html).modal()
-  $('#confirmationDialog .confirm').on 'click', -> $.rails.confirmed(link)
+    swal {
+      title: $('#deletion').data('title')
+      text: $('#deletion').data('msg')
+      type: 'warning'
+      showCancelButton: true
+      confirmButtonColor: '#DD6B55'
+      confirmButtonText: 'Delete'
+      cancelButtonText: 'Cancel'
+      closeOnConfirm: false
+      closeOnCancel: false
+      timer: 15000
+    }, (isConfirm) ->
+      if isConfirm
+        swal 'Deleted!', 'Student has been deleted!.', 'success', $.rails.confirmed link
+      else
+        swal 'Cancelled', 'Student delete has been cancelled', 'error'
+      return

@@ -10,12 +10,12 @@
         </li>
       </ul>
 
-      <%= link_to calendar_path(date: @date - 1.month), class: "btn btn-default" do %>
-        <i class="glyphicon glyphicon-backward"></i>
+      <%= link_to calendar_path(date: @date - 1.month), class: "btn btn-sm btn-default" do %>
+        <i style="font-size:1.2em;" class="glyphicon glyphicon-chevron-left"></i>
       <% end %>
       <%= "#{@date.strftime("%B")} #{@date.year}" %>
-      <%= link_to calendar_path(date: @date + 1.month), class: "btn btn-default" do %>
-        <i class="glyphicon glyphicon-forward"></i>
+      <%= link_to calendar_path(date: @date + 1.month), class: "btn btn-sm btn-default" do %>
+        <i style="font-size:1.2em;" class="glyphicon glyphicon-chevron-right"></i>
       <% end %>
 
       <ul class="nav pull-right">
