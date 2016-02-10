@@ -37,6 +37,8 @@
 .nav {
 	&.pull-left {
 		a {
+			padding: 5px 10px;
+			text-align: center;
 			color: green;
 		}
 		&a:active, a:hover {
@@ -45,6 +47,8 @@
 	}
 	&.pull-right {
 		a {
+			padding: 5px 10px;
+			text-align: center;
 			color: white;
 		}
 		&a:active, a:hover {

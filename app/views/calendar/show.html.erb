@@ -4,7 +4,9 @@
 
       <ul class="nav pull-left">   
         <li>
-          <%= link_to "Start & Info page", start_page_path, class: "btn btn-xs btn-default" %>
+          <%= link_to start_page_path, class: "btn btn-xs btn-default" do %>
+            <i style="font-size:2.0em;" class="glyphicon glyphicon-home"></i>
+          <% end %>
         </li>
       </ul>
 
@@ -16,9 +18,11 @@
         <i class="glyphicon glyphicon-forward"></i>
       <% end %>
 
-      <ul class="nav pull-right">   
+      <ul class="nav pull-right">
         <li>
-          <%= link_to "All Events", events_path, class: "btn btn-xs btn-primary" %>
+          <%= link_to events_path, class: "btn btn-xs btn-primary" do %>
+            <i style="font-size:2.0em;" class="glyphicon glyphicon-list"></i>
+          <% end %>
         </li>
       </ul>
     </div>

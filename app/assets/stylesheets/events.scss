@@ -34,11 +34,14 @@
 		    padding: 0px 10px;
 		}
 
-		td:nth-child(5), td:nth-child(6) {
-			width: 50px;
-			padding: auto;
+		td:nth-child(5), td:nth-child(6), td:nth-child(7) {
+			width: auto;
+			padding: 1px;
 			text-align: center;
 			border: none;
+		}
+		td:nth-child(5) {
+			padding: 0 1px 0 5px;
 		}
 	}
 }
