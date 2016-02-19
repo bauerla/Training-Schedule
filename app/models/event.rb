@@ -1,4 +1,6 @@
 class Event < ActiveRecord::Base
+	# Fetch month at a time ?
+	# scope :current_day, -> (date) { where("starttime BETWEEN ? AND ?", (date.beginning_of_day), (date.end_of_day)).all }
 
 	# add the accessors for the fields
 	attr_accessor :starttime_date, :starttime_time, :endtime_date, :endtime_time
@@ -14,8 +16,8 @@ class Event < ActiveRecord::Base
 
 	protected
 	def get_datetimes
-		puts 'get_datetimes'
-		logger.warn 'get_datetimes'
+		puts 'Event model - get_datetimes'
+
 		self.starttime ||= Time.now  # if the starttime time not set, set it to now
 		self.endtime ||= self.starttime + 60*60 # if the endtime not set increment hour from starttime
 
@@ -27,7 +29,6 @@ class Event < ActiveRecord::Base
 	end
 
 	def set_datetimes
-		puts 'tultiin set_datetimes'
 		logger.warn 'tultiin set_datetimes'
 		self.starttime = "#{self.starttime_date} #{self.starttime_time}:00" # convert the two fields back to db
 		self.endtime = "#{self.endtime_date} #{self.endtime_time}:00" # convert the two fields back to db
