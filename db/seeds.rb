@@ -44,6 +44,24 @@ Event.create!([{
 	text: "Reidet ja takareidet - pyramid", 
 	starttime: DateTime.new(2016,2,5,17,15), 
 	endtime: DateTime.new(2016,2,5,18,45),
+},
+{
+	title: "Intervalli treeni", 
+	text: "Interval juoksutreenit 2", 
+	starttime: DateTime.new(2016,2,25,18,30), 
+	endtime: DateTime.new(2016,2,25,19,45),
+},
+{
+	title: "Juoksulenkki", 
+	text: "12 km lenkki", 
+	starttime: DateTime.new(2016,2,29,14,30), 
+	endtime: DateTime.new(2016,2,29,16,45),
+},
+{
+	title: "Jalkatreenit", 
+	text: "Pohkeet ja kyykyt", 
+	starttime: DateTime.new(2016,2,29,17,15), 
+	endtime: DateTime.new(2016,2,29,18,45),
 }])
 
 p "Created #{Event.count} events"

@@ -12,7 +12,7 @@
 		}
 
 		td {
-			margin: 50px;
+			
 		}
 
 		.day_headers {
@@ -20,7 +20,7 @@
 			th {
 				color: white;
 				text-align: center;
-				background-color: #87A88B;
+				background-color: #008000;
 			}
 		}
 
@@ -33,6 +33,16 @@
 			color: #007817;
 			font-weight: bold;
 			background-color: rgba(25, 150, 25, 0.1);
+		}
+		.event_item {
+			padding: 0 0 0 15px;
+			overflow: hidden;
+			color: #008000;
+			list-style-type: square;
+
+			a {
+				margin-left: -5px;
+			}
 		}
 	}
 }

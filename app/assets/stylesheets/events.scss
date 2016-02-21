@@ -5,7 +5,7 @@
 .list_events {
 
 	table th {
-		background-color: #87A88B;
+		background-color: #008000;
 		text-align: center;
 		color: white;
 		border: 1px solid rgba(25, 25, 25, 0.1);
@@ -63,3 +63,16 @@
 .no_events {
 	color: #656565;
 }
+
+/* Show event */
+.show_container {
+	margin-top: 50px;
+
+	.panel-heading h3 {
+		margin: 0;
+	}
+}
+
+
+
+
