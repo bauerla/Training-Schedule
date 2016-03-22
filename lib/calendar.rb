@@ -30,7 +30,9 @@ class Calendar < Struct.new(:view, :date, :callback)
 	end
 
 	def day_classes(day)
+		# add additional class names for current <td>
 		classes = []
+		classes << "event_day" if Event.day_count(day) > 0
 		classes << "today" if day == Date.today
 		classes << "not-in-month" if day.month != date.month
 		classes.empty? ? nil : classes.join(" ")

@@ -1,6 +1,7 @@
 class Event < ActiveRecord::Base
 	# Fetch month at a time ?
 	# scope :current_day, -> (date) { where("starttime BETWEEN ? AND ?", (date.beginning_of_day), (date.end_of_day)).all }
+	scope :day_count, -> (day) { where('date(starttime) = ?', day).count }
 
 	# add the accessors for the fields
 	attr_accessor :starttime_date, :starttime_time, :endtime_date, :endtime_time
@@ -29,7 +30,7 @@ class Event < ActiveRecord::Base
 	end
 
 	def set_datetimes
-		logger.warn 'tultiin set_datetimes'
+		puts 'tultiin set_datetimes'
 		self.starttime = "#{self.starttime_date} #{self.starttime_time}:00" # convert the two fields back to db
 		self.endtime = "#{self.endtime_date} #{self.endtime_time}:00" # convert the two fields back to db
 	end

@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
 
 	def index
-		@events = Event.all
+		@events = Event.order('starttime')
 	end
 
 	def show
@@ -20,7 +20,7 @@ class EventsController < ApplicationController
 		@event = Event.new(event_params)
 		if @event.save
 			#redirect_to @event
-			flash[:success] = "New Event Added!"
+			flash.now[:success] = "New Event Added!"
 			render 'show'
 		else
 			render 'new'
@@ -30,8 +30,7 @@ class EventsController < ApplicationController
 	def update
 		@event = Event.find(params[:id])
 		if @event.update(event_params)
-			flash[:success] = "Event updated!"
-			redirect_to @event
+			redirect_to @event, :notice => "Event updated!"
 		else
 			render 'edit'
 		end
@@ -40,7 +39,7 @@ class EventsController < ApplicationController
 	def destroy
 		@event = Event.find(params[:id])
 		@event.destroy
-
+		flash.now[:alert] = "Event deleted!"
 		redirect_to events_path
 	end
 

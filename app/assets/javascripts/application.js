@@ -20,7 +20,30 @@
 //= require turbolinks
 //= require_tree .
 
-$(function() {
-	console.log('datepicker click');
-    $('.datepicker').datepicker({dateFormat: 'yy-mm-dd'});
+jQuery.noConflict();
+
+jQuery(document).ready(function($) {
+	console.log('datepicker initialized');
+	$('.datepicker').datepicker({
+		dateFormat: 'yy-mm-dd'
+	});
+
+	$('.datepicker').click(function(e) {
+		// TODO, if any
+	});
+
+	$('.datepicker').on("input change", function(e) {
+		console.log("Date changed: ", e.target.value);
+		var targ = e.target.parentElement.closest("div");
+		var targetClass = targ.getAttribute('class');
+		console.log("target class: " + targetClass);
+		if (targetClass === "starttime_field") {
+			$("div.endtime_field .datepicker").val($("div.starttime_field .datepicker").val());
+		}
+	});
+
+	$('.event_day').on("click", function(e) {
+		console.log("event_day clicked!");
+	});
+
 });

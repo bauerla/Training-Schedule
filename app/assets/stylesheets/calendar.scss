@@ -6,15 +6,13 @@
 	&.table {
 		width: 100%;
 		table-layout: fixed;
-
 		tr {
-			height: 100px;
-		}
-
-		td {
 			
 		}
-
+		td ul {
+			height: 100px;
+			overflow: hidden;
+		}
 		.day_headers {
 			height: 30px;
 			th {
@@ -23,7 +21,9 @@
 				background-color: #008000;
 			}
 		}
-
+		.event_day {
+			cursor: pointer;
+		}
 		.not-in-month {
 			color: #EEEEEE;
 			background-color: #BFBFBF;

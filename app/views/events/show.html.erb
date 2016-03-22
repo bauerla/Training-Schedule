@@ -1,14 +1,16 @@
 <!-- Possible notifications -->
 <div class="show_container">
   <% flash.each do |key, value| %>
-      <div class="alert alert-<%= key %>"><%= value %></div>
+    
+    <div class="alert <%= bootstrap_class_for(key) %> fade in">
+      <button class="close" data-dismiss="alert"><i class="glyphicon glyphicon-remove-circle"></i></button>
+      <i class="glyphicon glyphicon-<%= bootstrap_icon_for(key) %>"></i> <%= value %>
+    </div>
   <% end %>
-  
   <div class="panel panel-default">
     <div class="panel-heading">
       <h3><strong><%= @event.title %></strong></h3>
     </div>
-
     <div class="panel-body">
       <p>
         <strong>Text:</strong>
@@ -24,12 +26,10 @@
       </p>
     </div>
   </div>
-
   <!-- Navigations -->
   <p>
     <%= link_to 'To Events', events_path, class: "btn btn-small btn-primary", style: "color: white" %>
-  <p/>
-
-  <!-- Debug -->
-  <!-- <%= debug @event %> -->
-</div>
+    <p/>
+      <!-- Debug -->
+      <!-- <%= debug @event %> -->
+    </div>

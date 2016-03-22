@@ -5,6 +5,8 @@
 # Override default confirm dialog (Sweet Alert plugin) 
 # http://t4t5.github.io/sweetalert/
 
+
+# SweetAlert2 methods for confirmation dialogs
 $.rails.allowAction = (link) ->
   return true unless link.attr('data-confirm')
   $.rails.showConfirmDialog(link) # look below for implementations
@@ -14,6 +16,7 @@ $.rails.confirmed = (link) ->
   link.removeAttr('data-confirm')
   link.trigger('click.rails')
 
+# Show SweetAlert dialog
 $.rails.showConfirmDialog = (link) ->
     swal {
       title: $('#deletion').data('title')
@@ -24,8 +27,8 @@ $.rails.showConfirmDialog = (link) ->
       confirmButtonText: 'Delete'
       cancelButtonText: 'Cancel'
       closeOnConfirm: false
-      closeOnCancel: false
-      timer: 15000
+      closeOnCancel: true
+      timer: 10000
     }, (isConfirm) ->
       if isConfirm
         swal 'Deleted!', 'Student has been deleted!.', 'success', $.rails.confirmed link
