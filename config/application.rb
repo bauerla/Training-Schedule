@@ -11,7 +11,7 @@ module Valmennusohjelma
     config.autoload_paths += %W(#{config.root}/lib)
 
     # Setting default timezone to +02:00
-    #config.time_zone = 'UTC'
+    config.time_zone = "Tallinn"
     config.active_record.default_timezone = :local
     
     # Settings in config/environments/* take precedence over those specified here.
