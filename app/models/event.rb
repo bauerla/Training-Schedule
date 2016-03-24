@@ -1,4 +1,7 @@
 class Event < ActiveRecord::Base
+	has_many :exercises, dependent: :destroy
+	accepts_nested_attributes_for :exercises
+
 	# Fetch month at a time ?
 	# scope :current_day, -> (date) { where("starttime BETWEEN ? AND ?", (date.beginning_of_day), (date.end_of_day)).all }
 	scope :day_count, -> (day) { where('date(starttime) = ?', day).count }

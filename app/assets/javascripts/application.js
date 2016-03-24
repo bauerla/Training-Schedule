@@ -20,9 +20,7 @@
 //= require turbolinks
 //= require_tree .
 
-jQuery.noConflict();
-
-jQuery(document).ready(function($) {
+$( document ).ready(function() {
 	console.log('datepicker initialized');
 	$('.datepicker').datepicker({
 		dateFormat: 'yy-mm-dd'
