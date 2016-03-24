@@ -17,10 +17,11 @@
 //= require jquery-ui/datepicker
 //= require jquery-ui/datepicker-fi
 //= require sweetalert2
-//= require turbolinks
+// require turbolinks
 //= require_tree .
 
-$( document ).ready(function() {
+
+var ready = function() {
 	console.log('datepicker initialized');
 	$('.datepicker').datepicker({
 		dateFormat: 'yy-mm-dd'
@@ -44,4 +45,7 @@ $( document ).ready(function() {
 		console.log("event_day clicked!");
 	});
 
-});
+};
+
+$(document).ready(ready);
+//$(document).on('page:change', ready);

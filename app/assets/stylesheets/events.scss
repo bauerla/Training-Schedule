@@ -23,7 +23,7 @@
 	    width: auto;
 	    height: auto;
 	    border-collapse: collapse;
-	    table-layout: fixed; 
+	    table-layout: fixed;
 
 	    tr {
 			height: 50px;
@@ -56,6 +56,7 @@
 	}
 }
 
+/* new Event button */
 .add_new_event {
 	margin: 25px 0px;
 }
@@ -64,6 +65,7 @@
 	margin-top: 25px;
 }
 
+/* no Events info */
 .no_events {
 	color: #656565;
 }
@@ -72,8 +74,16 @@
 .show_container {
 	margin-top: 50px;
 
-	.panel-heading h3 {
-		margin: 0;
+	.panel {
+		.panel-heading h3 {
+			margin: 0;
+		}
+		.panel-body{
+			padding: 15px;
+		}
+		.panel_exercises{
+			margin: 15px;
+		}
 	}
 }
 

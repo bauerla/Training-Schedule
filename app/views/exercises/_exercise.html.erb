@@ -2,10 +2,19 @@
   <p>
     <strong>Exercise:</strong>
     <%= exercise.desc %>
-  </p>
-  <p>
     <strong>Duration:</strong>
     <%= exercise.duration %>
     min
+    <%= link_to [exercise.event, exercise],
+    					id: "deletion",
+    					class: "btn btn-sm btn-danger",
+              method: :delete,
+              data: {
+                      confirm: ' ',
+                      title: 'Oletko varma ?',
+                      msg: 'Kyseinen harjoitusosio poistetaan'
+                      } do %>
+      <i class="glyphicon glyphicon-trash"></i>
+    <% end %>
   </p>
 </div>

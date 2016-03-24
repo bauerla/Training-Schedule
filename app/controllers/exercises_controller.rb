@@ -3,12 +3,18 @@ class ExercisesController < ApplicationController
   def create
     @event = Event.find(params[:event_id])
     if @exercise = @event.exercises.create(exercise_params).valid?
-      flash.keep[:success] = "New exercise added: #{@exercise.desc}"
-      puts "joo -------------------------------"
+      flash.keep[:success] = "New exercise added!"
     else
-      flash.keep[:error] = "Description must be at least 5 characters long & duration integer value"
-      puts "ei -------------------------------"
+      flash.keep[:alert] = "Description must be at least 5 characters long & duration integer value"
     end
+    redirect_to event_path(@event)
+  end
+
+  def destroy
+    @event = Event.find(params[:event_id])
+    @exercise = @event.exercises.find(params[:id])
+    @exercise.destroy
+    flash.keep[:success] = "Exercise deleted!"
     redirect_to event_path(@event)
   end
 

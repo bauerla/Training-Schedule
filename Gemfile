@@ -39,6 +39,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Sweet Alert
 gem 'sweetalert2'
 
+# Caching files - for development speed up
+gem 'dalli'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

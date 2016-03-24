@@ -20,8 +20,6 @@ class Event < ActiveRecord::Base
 
 	protected
 	def get_datetimes
-		puts 'Event model - get_datetimes'
-
 		self.starttime ||= Time.now  # if the starttime time not set, set it to now
 		self.endtime ||= self.starttime + 60*60 # if the endtime not set increment hour from starttime
 
@@ -33,7 +31,6 @@ class Event < ActiveRecord::Base
 	end
 
 	def set_datetimes
-		puts 'tultiin set_datetimes'
 		self.starttime = "#{self.starttime_date} #{self.starttime_time}:00" # convert the two fields back to db
 		self.endtime = "#{self.endtime_date} #{self.endtime_time}:00" # convert the two fields back to db
 	end

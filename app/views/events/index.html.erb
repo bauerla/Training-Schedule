@@ -43,18 +43,18 @@
               <% end %>
             </td>
             <td>
-              <%= link_to event_path(ev), 
-                id: "deletion", 
+              <%= link_to event_path(ev),
+                id: "deletion",
                 class: "btn btn-sm btn-danger",
                 method: :delete,
-                data: { 
-                      confirm: ' ', 
+                data: {
+                      confirm: ' ',
                       title: 'Oletko varma ?',
-                      msg: 'Kyseinen harjoitus poistetaan pysyvästi' 
+                      msg: 'Kyseinen harjoitus poistetaan pysyvästi'
                       } do %>
                   <i class="glyphicon glyphicon-trash"></i>
               <% end %>
-              </td>
+            </td>
           </tr>
         <% end %>
       </table>
@@ -63,7 +63,7 @@
   <div class="back_to_cal">
     <%= link_to 'Back to Calendar', calendar_path, class: "btn btn-md btn-primary", style: "color: white" %>
   </div>
-  
+
 </div>
 
 <!-- Debug -->
