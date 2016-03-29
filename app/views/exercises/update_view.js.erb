@@ -1,0 +1,12 @@
+/* Dynamically change selected Exercise line to update form */
+var inputs = document.querySelectorAll('input[name=exercise_id]');
+var targetId = $('#current_ex').val();
+var i = 1;
+[].forEach.call(inputs, function(inputs) {
+  if (inputs.value === targetId) {
+    var updateCont = inputs.closest(".exercises");
+    $(updateCont).html("<h3>TODO - form for update</h3>");
+  }
+  i += 1;
+});
+

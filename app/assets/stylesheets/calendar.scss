@@ -5,9 +5,10 @@
 .calendar {
 	&.table {
 		width: 100%;
+		min-width: 750px;
 		table-layout: fixed;
 		tr {
-			
+
 		}
 		td ul {
 			height: 100px;

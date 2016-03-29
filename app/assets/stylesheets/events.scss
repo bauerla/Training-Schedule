@@ -58,7 +58,10 @@
 
 /* new Event button */
 .add_new_event {
-	margin: 25px 0px;
+	margin: 15px 0px;
+	a {
+		padding: 8px 10px 8px 12px;
+	}
 }
 
 .back_to_cal {

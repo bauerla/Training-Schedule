@@ -1,19 +1,26 @@
 <div class="exercises">
   <p>
+    <%= hidden_field_tag("exercise_id", value = exercise.id) %>
     <strong>Exercise:</strong>
     <%= exercise.desc %>
     <strong>Duration:</strong>
     <%= exercise.duration %>
     min
+    <%= link_to "<i class=\"glyphicon glyphicon-edit\"></i>".html_safe,
+        to_update_view_path(ex_id: exercise.id),
+        :remote => true,
+        id: "update",
+        class: "btn btn-sm btn-warning" %>
+
     <%= link_to [exercise.event, exercise],
-    					id: "deletion",
-    					class: "btn btn-sm btn-danger",
-              method: :delete,
-              data: {
-                      confirm: ' ',
-                      title: 'Oletko varma ?',
-                      msg: 'Kyseinen harjoitusosio poistetaan'
-                      } do %>
+        id: 'delete',
+        class: 'btn btn-sm btn-danger',
+        method: :delete,
+        data: {
+          confirm: ' ',
+          title: 'Oletko varma ?',
+          msg: 'Kyseinen harjoitusosio poistetaan'
+        } do %>
       <i class="glyphicon glyphicon-trash"></i>
     <% end %>
   </p>

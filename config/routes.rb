@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 	get 'main/index', as: 'start_page'
 	get 'events/show'
 	get 'events/index'
+	get '/to_update_view/:ex_id' => 'exercises#update_view',
+		as: 'to_update_view'
 
 
 	root 'calendar#show'

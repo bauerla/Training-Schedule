@@ -23,6 +23,7 @@
     </div>
 
     <div class="panel_exercises">
+      <%= hidden_field_tag("current_ex", value = "") %>
       <p>
         <h3>Exercises</h3>
         <%= render @event.exercises %>

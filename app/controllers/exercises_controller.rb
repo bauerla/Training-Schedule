@@ -18,6 +18,14 @@ class ExercisesController < ApplicationController
     redirect_to event_path(@event)
   end
 
+  def update_view
+    id = params[:ex_id] # Excercise id if needed
+    puts "Event:: " + id
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
     def exercise_params
       params.require(:exercise).permit(:desc, :duration)
