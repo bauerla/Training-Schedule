@@ -1,0 +1,18 @@
+<%= form_for [@update_ex.event, @update_ex] , :html => {:class => "form-horizontal", :role => "form"} do |f| %>
+  <div class="form-group">
+    <strong>Description</strong>
+
+    <%= f.text_field :desc %>
+
+    <strong>Exercise duration (min)</strong>
+
+    <%= f.text_field :duration %>
+
+
+    <%= button_tag(type: "submit", class: "btn btn-small btn-success", style: "color: white") do %>
+      <i class="glyphicon glyphicon-ok"></i>
+    <% end %>
+
+  </div>
+<% end %>
+

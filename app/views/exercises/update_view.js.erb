@@ -5,7 +5,10 @@ var i = 1;
 [].forEach.call(inputs, function(inputs) {
   if (inputs.value === targetId) {
     var updateCont = inputs.closest(".exercises");
-    $(updateCont).html("<h3>TODO - form for update</h3>");
+    $(updateCont).fadeOut('fast', function() {
+      $(updateCont).html("<%= j render partial: 'exercises/update_form', :locals => { :exercise => @update_ex } %>");
+    });
+    $(updateCont).fadeIn('slow');
   }
   i += 1;
 });
