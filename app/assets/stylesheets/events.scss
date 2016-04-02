@@ -81,11 +81,14 @@
 		.panel-heading h3 {
 			margin: 0;
 		}
-		.panel-body{
+		.panel-body {
 			padding: 15px;
 		}
-		.panel_exercises{
+		.exercises_container {
 			margin: 15px;
+			.exercise .show_exercise {
+				padding: 5px 0;
+			}
 		}
 	}
 }

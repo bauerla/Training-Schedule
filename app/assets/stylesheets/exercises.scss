@@ -1,3 +1,28 @@
 // Place all the styles related to the Exercises controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+tbody {
+  tr.exercise {
+      td:nth-child(2) {
+        width: 60%;
+      }
+      td:nth-child(3), td:nth-child(4) {
+        width: 20%;
+      }
+  }
+  tr.update_form {
+    td:nth-child(1) {
+      width: 60%;
+    }
+    td:nth-child(2), td:nth-child(3) {
+      width: 20%;
+    }
+    td input {
+      width: 90%;
+    }
+  }
+}
+
+.return_btn {
+  padding: 0 0 25px 15px;
+}

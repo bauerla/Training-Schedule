@@ -3,7 +3,7 @@
 
   <%= render 'shared/flash' %>
 
-  <div class="panel panel-default">
+  <div class="panel panel-primary">
     <div class="panel-heading">
       <h3><strong><%= @event.title %></strong></h3>
     </div>
@@ -22,12 +22,20 @@
       </p>
     </div>
 
-    <div class="panel_exercises">
+    <div class="exercises_container">
       <%= hidden_field_tag("current_ex", value = "") %>
-      <p>
-        <h3>Exercises</h3>
-        <%= render @event.exercises %>
-      </p>
+      <h3>Exercises</h3>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Exercise name</th>
+            <th>Duration</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render @event.exercises %>
+        </tbody>
+      </table>
       <p>
         <h3>Add new exercise</h3>
         <%= render 'exercises/form' %>
@@ -35,10 +43,11 @@
     </div>
 
   </div>
+
   <!-- Navigations -->
-  <p>
+  <div class="return_btn">
     <%= link_to 'To Events', events_path, class: "btn btn-small btn-primary", style: "color: white" %>
-  <p/>
+  </div>
   <!-- Debug -->
   <!-- <%= debug @event %> -->
 </div>

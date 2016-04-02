@@ -1,27 +1,30 @@
-<div class="exercises">
-  <p>
-    <%= hidden_field_tag("exercise_id", value = exercise.id) %>
-    <strong>Exercise:</strong>
-    <%= exercise.desc %>
-    <strong>Duration:</strong>
-    <%= exercise.duration %>
-    min
-    <%= link_to "<i class=\"glyphicon glyphicon-edit\"></i>".html_safe,
-        to_update_view_path(ex_id: exercise.id),
-        :remote => true,
-        id: "update",
-        class: "btn btn-sm btn-warning" %>
+<tr class="exercise">
+	<%= hidden_field_tag("exercise_id", value = exercise.id) %>
+  <td>
+  	<%= exercise.desc %>
+  </td>
+  <td>
+  	<%= exercise.duration %>min
+  </td>
+  <td>
+	  <%= link_to "<i class=\"glyphicon glyphicon-edit\"></i>".html_safe,
+	      to_update_view_path(ex_id: exercise.id),
+	      :remote => true,
+	      id: "update",
+	      class: "btn btn-sm btn-primary" %>
+	  <%= link_to [exercise.event, exercise],
+	      id: 'delete',
+	      class: 'btn btn-sm btn-danger',
+	      method: :delete,
+	      data: {
+	        confirm: ' ',
+	        title: 'Oletko varma ?',
+	        msg: 'Kyseinen harjoitusosio poistetaan'
+	      } do %>
+	    <i class="glyphicon glyphicon-trash"></i>
+	  <% end %>
+	</td>
 
-    <%= link_to [exercise.event, exercise],
-        id: 'delete',
-        class: 'btn btn-sm btn-danger',
-        method: :delete,
-        data: {
-          confirm: ' ',
-          title: 'Oletko varma ?',
-          msg: 'Kyseinen harjoitusosio poistetaan'
-        } do %>
-      <i class="glyphicon glyphicon-trash"></i>
-    <% end %>
-  </p>
-</div>
+  <!-- Exercise update form - default: hidden -->
+  <%= render partial: 'exercises/update_form', :locals => { :@update_ex => exercise } %>
+</tr>

@@ -4,12 +4,11 @@ var targetId = $('#current_ex').val();
 var i = 1;
 [].forEach.call(inputs, function(inputs) {
   if (inputs.value === targetId) {
-    var updateCont = inputs.closest(".exercises");
-    $(updateCont).fadeOut('fast', function() {
-      $(updateCont).html("<%= j render partial: 'exercises/update_form', :locals => { :exercise => @update_ex } %>");
-    });
-    $(updateCont).fadeIn('slow');
+    var updateCont = inputs.closest(".exercise");
+    $(updateCont).toggle(false);
+    $(updateCont).siblings().toggle(true);
+    $(updateCont).next('.update_form').toggle(true);
+    $(updateCont).siblings().next('.update_form').toggle(false);
   }
   i += 1;
 });
-

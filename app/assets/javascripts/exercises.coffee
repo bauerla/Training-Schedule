@@ -3,11 +3,18 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 ready = ->
-  $('.exercises p #update').click ->
-    elementId = $(this).closest('p').find('#exercise_id')
+  # Currently selected element id to the hidden tag_field
+  $('.exercise #update').click ->
+    elementId = $(this).closest('.exercise').find('#exercise_id')
     id = elementId.attr('value')
     console.log id
-    $('.panel_exercises input[name=current_ex]').val(id)
+    $('.exercises_container input[name=current_ex]').val(id)
+    return
+
+  # Disables other exercise objects update mode if present
+  $('.update_ex_cancel').click ->
+    $(this).closest('.update_form').toggle(false)
+    $(this).closest('.update_form').prev('.exercise').toggle(true)
     return
 
 $(document).ready ready
