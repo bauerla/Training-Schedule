@@ -3,64 +3,24 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .events_index {
-	margin-bottom: 50px;
-}
-
-.list_events {
-
-	table th {
-		background-color: #008000;
-		text-align: center;
-		color: white;
-		border: 1px solid rgba(25, 25, 25, 0.1);
-	}
-
-	table tr {
-		height: 0px;
-	}
-
-	table {
-	    width: auto;
-	    height: auto;
-	    border-collapse: collapse;
-	    table-layout: fixed;
-
-	    tr {
-			height: 50px;
+	margin-top: 55px;
+	.events.panel-heading {
+		vertical-align: middle;
+		.panel-title {
+			font-size: 27px;
 		}
 
-		th {
-			min-width: 150px;
-		}
-
-		.events_headers {
-			height: 37px; // somehow calendars headers have + 7px to 30px
-		}
-
-		td {
-		    border: 1px solid rgba(25, 25, 25, 0.1);
-		    padding: 0px 10px;
-		    min-width: 150px;
-		}
-
-		td:nth-child(5), td:nth-child(6), td:nth-child(7) {
-			width: auto;
-			min-width: 0;
-			padding: 1px;
-			text-align: center;
-			border: none;
-		}
-		td:nth-child(5) {
-			padding: 0 1px 0 5px;
+		.btn-group {
+			a {
+				padding: 5px 8px 5px 11px;
+			}
 		}
 	}
-}
 
-/* new Event button */
-.add_new_event {
-	margin: 15px 0px;
-	a {
-		padding: 8px 10px 8px 12px;
+	.list_events {
+		table {
+
+		}
 	}
 }
 
@@ -75,7 +35,7 @@
 
 /* Show event */
 .show_container {
-	margin-top: 50px;
+	margin-top: 55px;
 
 	.panel {
 		.panel-heading h3 {

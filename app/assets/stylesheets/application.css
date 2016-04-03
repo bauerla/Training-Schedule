@@ -21,3 +21,11 @@
 	height: 1px;
  }
 
+ #flash_partial{
+  position: absolute;
+  top: 0;
+  z-index:10000;
+  left: 25%;
+  right: 25%
+}
+

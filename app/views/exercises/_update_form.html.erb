@@ -7,10 +7,18 @@
       <%= f.text_field :duration %>
     </td>
     <td>
-      <%= button_tag(type: "submit", class: "update_ex_ok btn btn-sm btn-success", style: "color: white") do %>
+      <%= button_tag( type: "submit",
+                      class: "update_ex_ok btn btn-sm btn-success has-tooltip",
+                      style: "color: white",
+                      data: { title: 'Save' }
+                    ) do %>
         <i class="glyphicon glyphicon-ok"></i>
       <% end %>
-      <%= button_tag(type: "button", class: "update_ex_cancel btn btn-sm btn-warning", style: "color: white") do %>
+      <%= button_tag( type: "button",
+                      class: "update_ex_cancel btn btn-sm btn-warning has-tooltip",
+                      style: "color: white",
+                      data: { title: 'Cancel' }
+                    ) do %>
         <i class="glyphicon glyphicon-remove"></i>
       <% end %>
     </td>

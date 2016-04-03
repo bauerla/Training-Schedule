@@ -45,7 +45,21 @@ var ready = function() {
 		console.log("event_day clicked!");
 	});
 
+	/* flash message auto-close functions */
+  function fadeAlert(){
+    $('.alert-custom').removeClass('in');
+  }
+
+  function removeAlert(){
+    $('.alert-custom').remove();
+  }
+
+  window.setTimeout(fadeAlert,5000);
+  window.setTimeout(removeAlert,8000);
+
+  /* Tooltips for buttons */
+  $('.has-tooltip').tooltip();
+
 };
 
 $(document).ready(ready);
-//$(document).on('page:change', ready);
