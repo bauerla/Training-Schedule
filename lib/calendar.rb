@@ -2,7 +2,7 @@ class Calendar < Struct.new(:view, :date, :callback)
 	HEADERS = %w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday]
 	START_DAY = :monday
 
-	# Paljastetaan 'content_tag' objekti näkymälle
+	# Reveal 'content_tag' object to the view
 	delegate :content_tag, to: :view
 
 	def table
@@ -33,8 +33,7 @@ class Calendar < Struct.new(:view, :date, :callback)
 	end
 
 	def day_classes(day)
-		# add additional class names for current <td>
-		p "day - #{day.inspect}"
+		# Add additional class names for current <td>
 		classes = []
 		classes << "event_day" if Event.day_count(day) > 0
 		classes << "today" if day == Date.today
@@ -42,6 +41,7 @@ class Calendar < Struct.new(:view, :date, :callback)
 		classes.empty? ? nil : classes.join(" ")
 	end
 
+	# Set link for navigation to Daily controller
 	def day_link(day)
 		link = []
 		if Event.day_count(day) > 0
