@@ -30,7 +30,6 @@
 			background-color: #BFBFBF;
 		}
 		.today {
-			text-decoration: underline;
 			color: #007817;
 			font-weight: bold;
 			background-color: rgba(25, 150, 25, 0.1);
@@ -42,6 +41,7 @@
 			list-style-type: square;
 
 			a {
+				font-weight: normal;
 				margin-left: -5px;
 			}
 		}
