@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 	get 'events/index'
 	get '/to_update_view/:ex_id' => 'exercises#update_view',
 		as: 'to_update_view'
+	get 'daily/:date', to: 'daily#index'
 
 
 	root 'calendar#show'

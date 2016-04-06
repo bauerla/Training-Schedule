@@ -6,7 +6,7 @@ class Calendar < Struct.new(:view, :date, :callback)
 	delegate :content_tag, to: :view
 
 	def table
-		content_tag :table, class: "calendar table table-bordered table-striped" do
+		content_tag :table, class: "calendar table table-bordered" do
 			header + week_rows
 		end
 	end
@@ -26,16 +26,31 @@ class Calendar < Struct.new(:view, :date, :callback)
 	end
 
 	def day_cell(day)
-		content_tag :td, view.capture(day, &callback), class: day_classes(day)
+		content_tag :td,
+								view.capture(day, &callback),
+								class: day_classes(day),
+								'data-link' => day_link(day)
 	end
 
 	def day_classes(day)
 		# add additional class names for current <td>
+		p "day - #{day.inspect}"
 		classes = []
 		classes << "event_day" if Event.day_count(day) > 0
 		classes << "today" if day == Date.today
 		classes << "not-in-month" if day.month != date.month
 		classes.empty? ? nil : classes.join(" ")
+	end
+
+	def day_link(day)
+		link = []
+		if Event.day_count(day) > 0
+			link << "/daily"
+			link << "/"
+			link << day.to_date.to_s
+			puts "date was : #{day.to_date.to_s}"
+		end
+		link.empty? ? nil : link.join("")
 	end
 
 	def weeks

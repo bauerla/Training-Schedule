@@ -1,0 +1,52 @@
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <% if @events.empty? %>
+      <h3><strong>No events here <%= @date_string %></strong></h3>
+    <% else  %>
+      <h3><strong>Events - <%= @date_string %></strong></h3>
+    <% end %>
+  </div>
+  <div class="panel-body">
+    <% if @events.empty? %>
+      <div class="no_events">
+        <h3>No Events found!</h3>
+      </div>
+    <% else %>
+      <div class="list_events panel-body">
+        <table class="table table-hover">
+          <thead>
+            <tr class="events_headers">
+              <th>Title</th>
+              <th>Text</th>
+              <th>Start time</th>
+              <th>End time</th>
+            </tr>
+          </thead>
+          <% @events.each do |ev| %>
+            <tbody>
+              <tr>
+                <td><%= ev.title %></td>
+                <td><%= ev.text %></td>
+                <td>
+                  <%= ev.starttime_time %>
+                  <%= ev.starttime_date %>
+                </td>
+                <td>
+                  <%= ev.endtime_time %>
+                  <%= ev.endtime_date %>
+                </td>
+
+                <td>
+                  <%= link_to 'Show', event_path(ev),
+                    class: "btn btn-sm btn-info has-tooltip",
+                    style: "color: white",
+                    data: {title: 'Show details'} %>
+                </td>
+              </tr>
+            </tbody>
+          <% end %>
+        </table>
+      </div>
+    <% end %>
+  </div>
+</div>
