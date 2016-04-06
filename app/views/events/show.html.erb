@@ -23,21 +23,28 @@
     <div class="exercises_container">
       <%= hidden_field_tag("current_ex", value = "") %>
       <h3>Exercises</h3>
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th>Exercise name</th>
-            <th>Duration</th>
-          </tr>
-        </thead>
-        <tbody>
-          <%= render @event.exercises %>
-        </tbody>
-      </table>
+      <% if @event.exercises.empty? %>
+        <div class="no_events">
+          <p><font size="4.0em">No Exercises yet!</font> - Add some...</p>
+        </div>
+      <% else %>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Exercise name</th>
+              <th>Duration</th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render @event.exercises %>
+          </tbody>
+        </table>
+      <% end %>
       <p>
         <h3>Add new exercise</h3>
         <%= render 'exercises/form' %>
       </p>
+
     </div>
 
   </div>
