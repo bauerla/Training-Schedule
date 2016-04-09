@@ -1,0 +1,221 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_self
+ *= require jquery-ui
+ *= require jquery-ui/datepicker
+ *= require sweetalert2
+ *= require_tree .
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import url(https://fonts.googleapis.com/css?family=Dosis);
+@import url(https://fonts.googleapis.com/css?family=Indie+Flower);
+
+.ui-datepicker table tr {
+  height: 1px;
+}
+
+/***********************
+  Flash (partial)
+************************/
+#flash_partial{
+  position: absolute;
+  top: 0;
+  z-index:10000;
+  left: 25%;
+  right: 25%
+}
+
+/***********************
+  Navbar styles
+************************/
+.navbar.navbar-default {
+  font-family: 'Dosis', sans-serif;
+  font-size: 1.5em;
+  background-color: rgba(248, 248, 248, 1);
+  border-width: 2px;
+  -moz-border-radius: 54px;
+  -webkit-border-radius: 54px;
+  border-radius: 54px;
+  .container-fluid {
+    padding-right: 0;
+    .collapse.navbar-collapse {
+      @extend .container-fluid;
+    }
+  }
+  .navbar-brand {
+    font-family: 'Indie Flower', cursive;
+    font-size: 2.0em;
+    color: rgba(0, 0, 0, 1);
+    line-height: 32px;
+  }
+  .navbar-nav>li {
+    margin-left: 15px
+  }
+  .navbar-nav>li>a {
+    height: 100%;
+    color: #003803;
+    background-color: rgba(248, 248, 248, 0);
+    line-height: 32px;
+    -moz-border-radius: 54px;
+    -webkit-border-radius: 54px;
+    border-radius: 54px;
+    >i {
+      vertical-align: middle;
+      font-size: 3.5em !important;
+    }
+    &:hover, &:focus {
+      color: #FFF;
+      background-color: rgba(133, 204, 136, 0.48);
+      background: -webkit-linear-gradient(top, rgba(133, 204, 136, 1) 0%, rgba(133, 204, 136, 0.48) 100%);
+      background: linear-gradient(to bottom, rgba(133, 204, 136, 1) 0%, rgba(133, 204, 136, 0.48) 100%);
+      -moz-border-radius: 54px;
+      -webkit-border-radius: 54px;
+      border-radius: 54px;
+    }
+  }
+  .navbar-nav>li#nav_start {
+    vertical-align: middle;
+    a {
+      padding: 10px;
+    }
+  }
+  .navbar-nav>.active>a {
+    color: #FFF;
+    background-color: rgba(0, 128, 0, 1);
+    background: -webkit-linear-gradient(top, rgba(0, 128, 0, 0.28) 0%, rgba(0, 128, 0, 1) 100%);
+    background: linear-gradient(to bottom, rgba(0, 128, 0, 0.28) 0%, rgba(0, 128, 0, 1) 100%);
+    &:hover, &:focus {
+      color: #FFF;
+      background-color: rgba(133, 204, 136, 0.48);
+      background: -webkit-linear-gradient(top, rgba(133, 204, 136, 1) 0%, rgba(133, 204, 136, 0.48) 100%);
+      background: linear-gradient(to bottom, rgba(133, 204, 136, 1) 0%, rgba(133, 204, 136, 0.48) 100%);
+      -moz-border-radius: 54px;
+      -webkit-border-radius: 54px;
+      border-radius: 54px;
+    }
+  }
+  .navbar-toggle {
+    border-color: #85cc88;
+    &:hover, &:focus {
+      background-color: #85cc88;
+      .icon-bar {
+        /* TODO ... */
+      }
+    }
+    .icon-bar {
+      background-color: #85cc88;
+    }
+  }
+}
+
+/***********************
+  Button styles
+************************/
+.round {
+  -moz-border-radius: 54px;
+  -webkit-border-radius: 54px;
+  border-radius: 54px;
+}
+.btn {
+    padding: 10px 20px;
+    border: 0 none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+.btn-primary {
+    background: #0099cc;
+    color: #ffffff;
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background: #33a6cc;
+}
+.btn-primary:active, .btn-primary.active {
+    background: #007299;
+    box-shadow: none;
+}
+
+/***********************
+  Media query - small screen
+************************/
+@media only screen and (max-width: 767px) {
+  .nav.navbar-nav.pull-right {
+     float: left !important;
+     width: 100%;
+   }
+  .navbar.navbar-default {
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    .container-fluid {
+      padding-right: 15px;
+      .navbar-collapse {
+        padding-right: 15px;
+      }
+    }
+    .navbar-header {
+      margin-right: 5px;
+    }
+    .navbar-nav>.active>a {
+      margin-top: 5px;
+      margin-bottom: 5px;
+      color: green;
+      background: 0;
+      -moz-border-radius: 0;
+      -webkit-border-radius: 0;
+      border-radius: 0;
+      &:hover, &:focus {
+        background: 0;
+        background-color: #CCC;
+        -moz-border-radius: 0;
+        -webkit-border-radius: 0;
+        border-radius: 0;
+      }
+    }
+    .navbar-nav>li#nav_start a {
+      margin-top: 5px;
+      margin-bottom: 5px;
+      width: 100%;
+      float: left;
+      text-align: left;
+    }
+    .navbar-nav>li {
+      border-top: 1px solid #CCC;
+    }
+    .navbar-nav>li>a {
+      margin-top: 5px;
+      margin-bottom: 5px;
+      color: #000;
+      background: 0;
+      -moz-border-radius: 0;
+      -webkit-border-radius: 0;
+      border-radius: 0;
+      >i {
+        vertical-align: middle;
+        font-size: 3.0em !important;
+      }
+      &:hover, &:focus {
+        background: 0;
+        background-color: #CCC;
+        -moz-border-radius: 0;
+        -webkit-border-radius: 0;
+        border-radius: 0;
+      }
+    }
+  }
+}

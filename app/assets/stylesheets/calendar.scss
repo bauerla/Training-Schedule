@@ -2,6 +2,36 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.nav_month{
+	margin-bottom: 15px;
+	vertical-align: middle;
+	a {
+		padding: 10px;
+		background-color: #C0C0C0;
+		color: #FFF;
+		&:hover, &:focus {
+			background-color: #DEDEDE;
+			color: #008000;
+		}
+	}
+	.month_title{
+		margin: 0 15px 0 15px;
+		display: inline-block;
+		font-size: 1.5em;
+		line-height: 50px;
+	}
+	#back_btn_month{
+		display: inline-block;
+		font-size: 1.2em;
+		margin-bottom: 5px;
+	}
+	#forward_btn_month{
+		display: inline-block;
+		font-size: 1.2em;
+		margin-bottom: 5px;
+	}
+}
+
 .calendar {
 	&.table {
 		width: 100%;
@@ -47,29 +77,6 @@
 				font-weight: normal;
 				margin-left: -5px;
 			}
-		}
-	}
-}
-
-.nav {
-	&.pull-left {
-		a {
-			padding: 5px 10px;
-			text-align: center;
-			color: green;
-		}
-		&a:active, a:hover {
-			color: black;
-		}
-	}
-	&.pull-right {
-		a {
-			padding: 5px 10px;
-			text-align: center;
-			color: white;
-		}
-		&a:active, a:hover {
-			color: black;
 		}
 	}
 }

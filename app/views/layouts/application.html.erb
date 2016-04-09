@@ -4,21 +4,47 @@
     <title>Valmennusohjelma</title>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => false %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
-    <%= stylesheet_link_tag "http://yandex.st/bootstrap/3.0.2/css/bootstrap.min.css", media: "all" %>
-    <%= javascript_include_tag "http://yandex.st/bootstrap/3.0.2/js/bootstrap.min.js" %>
+
     <%= csrf_meta_tags %>
   </head>
   <body>
 
     <div id="main-container" class="container">
-      <div class="row">
-          <div class="col-xs-12">
-            <%= render 'shared/flash' %>
+      <div class="row navigation-bar">
+        <div class="navbar navbar-default" role="navigation">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar-collapse">
+                <span class = "sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="/">Valmmennus Ohjelma</a>
+            </div>
+            <div class="collapse navbar-collapse" id="main-navbar-collapse">
+              <ul class="nav navbar-nav pull-right">
+                <li id="nav_calendar" class="<%= 'active' if current_page?(calendar_path) || current_page?(root_path) %>"><%= link_to "Calendar", calendar_path %></li>
+                <li id="nav_events" class="<%= 'active' if current_page?(events_path) %>"><%= link_to "Events", events_path %></li>
+                <li id="nav_start" class="<%= 'active' if current_page?(start_page_path) %>">
+                  <%= link_to start_page_path,
+                      class: "btn btn-xs btn-default" do %>
+                    <i style="font-size:2.0em;" class="glyphicon glyphicon-info-sign"></i>
+                  <% end %>
+                </li>
+              </ul>
+            </div>
           </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12">
-          <%= yield %>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+              <%= render 'shared/flash' %>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <%= yield %>
+          </div>
         </div>
       </div>
     </div>
