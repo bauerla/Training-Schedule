@@ -1,15 +1,12 @@
 <%= form_for([@event, @event.exercises.build]) do |f| %>
-  <p>
-    <strong>Description</strong>
+  <div class="input-group input-group-xs">
+    <%= f.label "Description" %> <br>
+    <%= f.text_area :desc, label:'Description', placeholder: 'Description of Exercise', class:'form-control' %>
     <br>
-    <%= f.text_area :desc %>
-  </p>
-  <p>
-    <strong>Exercise duration (min)</strong>
+    <%= f.label "Duration" %> <br>
+    <%= f.text_field :duration, label:'Duration (min)', placeholder: 'Minutes', class:'form-control' %>
     <br>
-    <%= f.text_field :duration %>
-  </p>
-  <p>
     <%= f.submit "Add Exercise", class: "btn btn-small btn-success", style: "color: white" %>
-  </p>
+
+  </div>
 <% end %>

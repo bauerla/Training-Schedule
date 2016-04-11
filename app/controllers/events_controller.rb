@@ -1,5 +1,7 @@
 class EventsController < ApplicationController
 
+	helper_method :parse_date
+
 	def index
 		@events = Event.order('starttime')
 	end
@@ -41,6 +43,11 @@ class EventsController < ApplicationController
 		@event.destroy
 		redirect_to events_path
 	end
+
+	# Helper for display readable date
+	def parse_date(date)
+    date.empty? ? "" : date = date.to_date.to_formatted_s(:rfc822)
+  end
 
 	private
 	def event_params

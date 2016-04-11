@@ -1,58 +1,62 @@
 <!-- Possible notifications -->
-<div class="show_container">
-
-  <div class="panel panel-info">
-    <div class="panel-heading">
-      <h3><strong><%= @event.title %></strong></h3>
-    </div>
-    <div class="panel-body">
-      <p>
-        <strong>Text:</strong>
-        <%= @event.text %>
-      </p>
-      <p>
-        <strong>Start time:</strong>
-        <%= @event.starttime %>
-      </p>
-      <p>
-        <strong>End Time:</strong>
-        <%= @event.endtime %>
-      </p>
-    </div>
-
-    <div class="exercises_container">
-      <%= hidden_field_tag("current_ex", value = "") %>
-      <h3>Exercises</h3>
-      <% if @event.exercises.empty? %>
-        <div class="no_events">
-          <p><font size="4.0em">No Exercises yet!</font> - Add some...</p>
+<div class="show_container row">
+  <div class="col-xs-12">
+    <div class="panel panel-info">
+      <div class="panel-heading clearfix">
+        <p class="panel-title pull-left"><strong><%= @event.title %></strong></p>
+        <p class="date pull-right"><strong><%= parse_date(@event.starttime_date) %></strong></p>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-xs-6" id="description">
+            <p>Description: <strong><%= @event.text %></strong></p>
+            <p>Start: <strong><%= @event.starttime_time %></strong></p>
+            <p>End: <strong><%= @event.endtime_time %></strong></p>
+          </div>
+          <div class="col-xs-6" id="media_container">
+            <p>MEdia Container</p>
+          </div>
         </div>
-      <% else %>
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th>Exercise name</th>
-              <th>Duration</th>
-            </tr>
-          </thead>
-          <tbody>
-            <%= render @event.exercises %>
-          </tbody>
-        </table>
-      <% end %>
-      <p>
-        <h3>Add new exercise</h3>
-        <%= render 'exercises/form' %>
-      </p>
+        <div class="row">
+          <div class="exercises_container col-xs-12">
+            <%= hidden_field_tag("current_ex", value = "") %>
+            <% if @event.exercises.empty? %>
+              <div class="no_events">
+                <p><font size="4.0em">No Exercises yet!</font> - Add some...</p>
+              </div>
+            <% else %>
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>Exercise</th>
+                    <th>Duration</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <%= render @event.exercises %>
+                </tbody>
+              </table>
+            <% end %>
+          </div>
+          <div class="row">
+            <div class="col-xs-4">
+              <p><strong>Add new exercise</strong></p>
+              <div class="panel panel-default">
+                <div class="panel-body">
 
+                    <%= render 'exercises/form' %>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
   </div>
 
   <!-- Navigations -->
   <div class="return_btn">
-    <%= link_to 'To Events', events_path, class: "btn btn-small btn-primary", style: "color: white" %>
+    <%= link_to 'Back to Events', events_path, class: "btn btn-small btn-primary", style: "color: white" %>
   </div>
-  <!-- Debug -->
-  <!-- <%= debug @event %> -->
 </div>

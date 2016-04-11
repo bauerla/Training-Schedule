@@ -3,7 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .events_index {
-	margin-top: 55px;
 	.events.panel-heading {
 		vertical-align: middle;
 		.panel-title {
@@ -11,6 +10,7 @@
 		}
 
 		.btn-group {
+			padding-right: 12px;
 			a {
 				padding: 5px 8px 5px 11px;
 			}
@@ -35,19 +35,24 @@
 
 /* Show event */
 .show_container {
-	margin-top: 55px;
-
 	.panel {
-		.panel-heading h3 {
-			margin: 0;
+		.panel-heading {
+			vertical-align: middle;
+			.panel-title {
+				font-size: 27px;
+			}
+			.date.pull-right {
+				margin: 0;
+				padding-right: 15px;
+				font-size: 24px;
+				color: #008000;
+			}
 		}
 		.panel-body {
 			padding: 15px;
-		}
-		.exercises_container {
-			margin: 15px;
-			.exercise .show_exercise {
-				padding: 5px 0;
+			#description {
+			}
+			#media_container {
 			}
 		}
 	}
