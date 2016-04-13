@@ -56,8 +56,17 @@
 			}
 		}
 	}
+
+	.add_exercise {
+		margin-left: 15px;
+	}
 }
 
+#starttime_field, #endtime_field {
+	input {
+	  text-align: center;
+	}
+}
 
 
 

@@ -12,44 +12,83 @@
       </ul>
     </div>
   <% end %>
-  <div class="form-group">
-    <%= f.label :title, class: "col-xs-1 control-label" %>
-    <div class="col-xs-5 col-sm-4">
-      <%= f.text_field :title, type: "text", class: "form-control" %>
+  <div class="form-horizontal col-xs-8">
+    <div class="form-group">
+      <div class="col-xs-offset-2 col-xs-10" id="form_title">
+        <h2>Edit Training</h2>
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :text, class: "col-xs-1 control-label" %>
-    <div class="col-xs-5 col-sm-4">
-      <%= f.text_area :text, type: "text", class: "form-control" %>
+    <div class="form-group">
+      <%= f.label :title, class: "control-label col-xs-2" %>
+      <div class="col-xs-8">
+        <div class="input-group">
+          <%= f.text_field :title, type: "text", class: "form-control" %>
+          <div class="input-group-addon">
+            <span class="glyphicon glyphicon-header"></span>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="starttime_field form-group">
-    <h3 class="col-xs-offset-1 col-xs-11">Aloitus aika</h3>
-    <%= f.label :starttime, class: "col-xs-2 col-sm-1 col-md-1 control-label" %>
-    <div class="col-xs-2 col-sm-2 col-md-1">
-      <%= f.text_field :starttime_time, :placeholder => 'hh:mm', :size => 5, :maxlength => 5 %>
+    <div class="form-group">
+      <%= f.label "Description", class: "control-label col-xs-2" %>
+      <div class="col-xs-8">
+        <div class="input-group">
+          <%= f.text_area :text, type: "text", class: "form-control" %>
+          <div class="input-group-addon">
+            <span class="glyphicon glyphicon-pencil"></span>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="col-xs-8 col-sm-9 col-md-10">
-      <%= f.text_field :starttime_date, :placeholder => 'vvvv-kk-pp', :class => 'datepicker', :size => 10, :maxlength => 10 %>
+
+    <div class="form-group" id="starttime_field">
+      <%= f.label :starttime, class: "control-label col-xs-2" %>
+      <div class="col-xs-3">
+        <div class="input-group">
+          <%= f.text_field :starttime_time, type: "text", :placeholder => 'hh:mm', :class => 'form-control', :size => 5, :maxlength => 5 %>
+          <div class="input-group-addon">
+            <span class="glyphicon glyphicon-time"></span>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-3">
+        <div class="input-group">
+          <%= f.text_field :starttime_date, type: "text", :placeholder => 'vvvv-kk-pp', :class => 'datepicker form-control', :size => 10, :maxlength => 10 %>
+          <div class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="endtime_field form-group">
-    <h3 class="col-xs-offset-1 col-xs-11">Lopetus aika</h3>
-    <%= f.label :endtime, class: "col-xs-2 col-sm-1 col-md-1 control-label" %>
-    <div class="col-xs-2 col-sm-2 col-md-1">
-      <%= f.text_field :endtime_time, :placeholder => 'hh:mm', :size => 5, :maxlength => 5 %>
+
+    <div class="form-group" id="endtime_field">
+      <%= f.label :endtime, class: "control-label col-xs-2" %>
+      <div class="col-xs-3">
+        <div class="input-group">
+          <%= f.text_field :endtime_time, type: "text", :placeholder => 'hh:mm', :class => 'form-control', :size => 5, :maxlength => 5 %>
+          <div class="input-group-addon">
+            <span class="glyphicon glyphicon-time"></span>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-3">
+        <div class="input-group">
+          <%= f.text_field :endtime_date, type: "text", :placeholder => 'vvvv-kk-pp', :class => 'datepicker form-control', :size => 10, :maxlength => 10 %>
+          <div class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="col-xs-8 col-sm-9 col-md-10">
-      <%= f.text_field :endtime_date, :placeholder => 'vvvv-kk-pp', :class => 'datepicker', :size => 10, :maxlength => 10 %>
+    <div class="form-group">
+      <div class="col-xs-offset-2 col-xs-11">
+        <%= f.submit "Save Changes", class: "btn btn-xsmall btn-success", style: "color: white"%>
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <div class="col-xs-offset-1 col-xs-11">
-      <%= f.submit "Save Changes", class: "btn btn-xsall btn-success", style: "color: white"%>
-    </div>
-    <div class="col-xs-offset-1 col-xs-11">
-      <%= link_to 'Back', events_path, type: "submit", class: "btn btn-xsall btn-primary", style: "color: white"%>
+    <div class="form-group">
+      <div class="col-xs-offset-2 col-xs-11">
+        <%= link_to 'Back', events_path, type: "submit", class: "btn btn-xsmall btn-primary", style: "color: white"%>
+      </div>
     </div>
   </div>
 

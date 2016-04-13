@@ -1,12 +1,31 @@
 <%= form_for([@event, @event.exercises.build]) do |f| %>
-  <div class="input-group input-group-xs">
-    <%= f.label "Description" %> <br>
-    <%= f.text_area :desc, label:'Description', placeholder: 'Description of Exercise', class:'form-control' %>
-    <br>
-    <%= f.label "Duration" %> <br>
-    <%= f.text_field :duration, label:'Duration (min)', placeholder: 'Minutes', class:'form-control' %>
-    <br>
-    <%= f.submit "Add Exercise", class: "btn btn-small btn-success", style: "color: white" %>
-
+<div class="form-horizontal">
+  <div class="form-group ">
+    <label for="description" class="control-label col-xs-3">Description</label>
+    <div class="col-xs-9">
+      <div class="input-group">
+        <%= f.text_area :desc, label:'Description', placeholder: 'Description of Exercise', class:'form-control', id:'description' %>
+        <div class="input-group-addon">
+          <span class="glyphicon glyphicon-pencil"></span>
+        </div>
+      </div>
+    </div>
   </div>
+  <div class="form-group ">
+    <label for="duration" class="control-label col-xs-3">Duration</label>
+    <div class="col-xs-9">
+      <div class="input-group">
+        <%= f.text_field :duration, label:'Duration (min)', placeholder: 'Minutes', class:'form-control', id:'duration' %>
+        <div class="input-group-addon">
+          <span class="glyphicon glyphicon-time"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-xs-offset-3 col-xs-9">
+      <%= f.submit "Add Exercise", class: "btn btn-small btn-success", style: "color: white" %>
+    </div>
+  </div>
+</div>
 <% end %>

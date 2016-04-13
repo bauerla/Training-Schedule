@@ -28,6 +28,7 @@
             <th>Text</th>
             <th>Start time</th>
             <th>End time</th>
+            <th>Date</th>
           </tr>
         </thead>
         <% @events.each do |ev| %>
@@ -37,13 +38,13 @@
               <td><%= ev.text %></td>
               <td>
                 <%= ev.starttime_time %>
-                <%= ev.starttime_date %>
               </td>
               <td>
                 <%= ev.endtime_time %>
-                <%= ev.endtime_date %>
               </td>
-
+              <td>
+                <%= parse_date(ev.endtime_date) %>
+              </td>
               <td>
                 <%= link_to 'Show', event_path(ev),
                   class: "btn btn-sm btn-info has-tooltip",

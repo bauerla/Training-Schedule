@@ -11,11 +11,12 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery.turbolinks
+// require jquery.turbolinks
 //= require jquery_ujs
 //= require jquery-ui
-//= require jquery-ui/datepicker
-//= require jquery-ui/datepicker-fi
+//= require jquery-ui/core
+// require jquery-ui/datepicker
+// require jquery-ui/datepicker-fi
 //= require bootstrap-sprockets
 //= require sweetalert2
 // require turbolinks
@@ -34,11 +35,10 @@ var ready = function() {
 
 	$('.datepicker').on("input change", function(e) {
 		console.log("Date changed: ", e.target.value);
-		var targ = e.target.parentElement.closest("div");
-		var targetClass = targ.getAttribute('class');
+		var targetClass = e.target.id;
 		console.log("target class: " + targetClass);
-		if (targetClass === "starttime_field") {
-			$("div.endtime_field .datepicker").val($("div.starttime_field .datepicker").val());
+		if (targetClass === "event_starttime_date") {
+      $('#event_endtime_date').val(e.target.value);
 		}
 	});
 

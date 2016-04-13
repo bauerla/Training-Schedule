@@ -79,7 +79,7 @@ n.times do
   stime = Faker::Time.between(10.days.ago, DateTime.now + 40, :day)
   minFW = Faker::Number.between(30,180)
   etime = stime + 60*minFW
-	event = Event.create!(title: Faker::Team.sport,
+	event = Event.create!(title: Faker::Team.sport.gsub(/\b\w/, &:upcase),
 												text: Faker::Shakespeare.king_richard_iii_quote,
 												starttime: stime,
 												endtime: etime)
