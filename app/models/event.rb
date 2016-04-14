@@ -1,6 +1,7 @@
 class Event < ActiveRecord::Base
 	has_many :exercises, dependent: :destroy
-	accepts_nested_attributes_for :exercises
+	has_one :video, dependent: :destroy
+	accepts_nested_attributes_for :exercises, :video, allow_destroy: true
 
 	# return how many events per day
 	scope :day_count, -> (day) { where('date(starttime) = ?', day).count }

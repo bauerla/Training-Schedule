@@ -47,30 +47,28 @@
               </td>
               <td>
                 <%= link_to 'Show', event_path(ev),
-                  class: "btn btn-sm btn-info has-tooltip",
-                  style: "color: white",
-                  data: {title: 'Show details'} %>
+                    class: "btn btn-sm btn-info has-tooltip",
+                    style: "color: white",
+                    data: {title: 'Show details'} %>
               </td>
               <td>
                 <%= link_to edit_event_path(ev),
-                  class: "btn btn-sm btn-primary has-tooltip",
-                  data: {
-                    title: 'Edit'
-                  } do %>
+                    class: "btn btn-sm btn-primary has-tooltip",
+                    data: { title: 'Edit' } do %>
                   <i class="glyphicon glyphicon-edit"></i>
                 <% end %>
               </td>
               <td>
                 <%= link_to event_path(ev),
-                  id: "deletion",
-                  class: "btn btn-sm btn-danger has-tooltip",
-                  method: :delete,
-                  data: {
-                        confirm: ' ',
-                        title: 'Delete',
-                        msg: 'Are you sure you want to delete this Event?'
-                        } do %>
-                    <i class="glyphicon glyphicon-trash"></i>
+                    id: "deletion",
+                    class: "btn btn-sm btn-danger has-tooltip",
+                    method: :delete,
+                    data: {
+                          confirm: ' ',
+                          title: 'Delete',
+                          msg: 'Are you sure you want to delete this Event?'
+                          } do %>
+                  <i class="glyphicon glyphicon-trash"></i>
                 <% end %>
               </td>
             </tr>

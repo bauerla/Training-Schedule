@@ -5,16 +5,15 @@ Rails.application.routes.draw do
 	resource :main
 	resources :events do
 		resources :exercises
+		resource :video
 	end
 
 	get 'calendar/show'
 	get 'main/index', as: 'start_page'
 	get 'events/show'
 	get 'events/index'
-	get '/to_update_view/:ex_id' => 'exercises#update_view',
-		as: 'to_update_view'
+	get '/to_update_view/:ex_id' => 'exercises#update_view', as: 'to_update_view'
 	get 'daily/:date', to: 'daily#index'
-
 
 	root 'calendar#show'
 

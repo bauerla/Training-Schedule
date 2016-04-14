@@ -23,7 +23,7 @@
       <%= f.label :title, class: "control-label col-xs-2" %>
       <div class="col-xs-10">
         <div class="input-group">
-          <%= f.text_field :title, type: "text", class: "form-control" %>
+          <%= f.text_field :title, type: "text", :placeholder => "title", class: "form-control" %>
           <div class="input-group-addon">
             <span class="glyphicon glyphicon-header"></span>
           </div>
@@ -34,7 +34,7 @@
       <%= f.label "Description", class: "control-label col-xs-2" %>
       <div class="col-xs-10">
         <div class="input-group">
-          <%= f.text_area :text, type: "text", class: "form-control" %>
+          <%= f.text_area :text, type: "text", :placeholder => "exercise description", class: "form-control" %>
           <div class="input-group-addon">
             <span class="glyphicon glyphicon-pencil"></span>
           </div>

@@ -30,6 +30,7 @@
   Flash (partial)
 ************************/
 #flash_partial{
+  padding-top: 5px;
   position: absolute;
   top: 0;
   z-index:10000;
@@ -151,10 +152,16 @@
 }
 
 /***********************
-  Input global settings
+  Bootstrap modifications
 ************************/
 textarea {
   resize: vertical;
+}
+
+.input-group-addon.success {
+    color: rgb(255, 255, 255);
+    background-color: rgb(92, 184, 92);
+    border-color: rgb(76, 174, 76);
 }
 
 /***********************

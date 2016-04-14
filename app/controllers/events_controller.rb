@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
 
-	helper_method :parse_date
+	helper_method :parse_date, :youtube_embed
 
 	def index
 		@events = Event.order('starttime')
@@ -12,6 +12,7 @@ class EventsController < ApplicationController
 
 	def new
 		@event = Event.new
+    @video = @event.build_video
 	end
 
 	def edit
@@ -48,6 +49,19 @@ class EventsController < ApplicationController
 	def parse_date(date)
     date.empty? ? "" : date = date.to_date.to_formatted_s(:rfc822)
   end
+
+  def youtube_embed(youtube_url)
+  if youtube_url[/youtu\.be\/([^\?]*)/]
+    youtube_id = $1
+  else
+    # Regex from # http://stackoverflow.com/questions/3452546/javascript-regex-how-to-get-youtube-video-id-from-url/4811367#4811367
+    youtube_url[/^.*((v\/)|(embed\/)|(watch\?))\??v?=?([^\&\?]*).*/]
+    youtube_id = $5
+  end
+  html = ""
+  html += %Q{<iframe title="YouTube video player" width="auto" height="auto" src="http://www.youtube.com/embed/#{ youtube_id }" frameborder="0" allowfullscreen></iframe>}
+  html.html_safe
+end
 
 	private
 	def event_params

@@ -1,0 +1,37 @@
+<div class="col-xs-12">
+    <h4>Link Youtube video for exercise</h4>
+</div>
+<%= form_for [@event, @event.build_video], url: event_video_path(@event) do |f| %>
+  <div class="form-horizontal col-xs-12" role="form">
+    <div class="form-group" id="text_fields">
+      <div class="col-xs-4">
+        <%= f.text_field :title, type: "text", :placeholder => 'title', class:'form-control', id:'link' %>
+      </div>
+      <div class="col-xs-8">
+        <div class="input-group">
+          <%= f.text_field :link, type: "text", :placeholder => 'video link...', class:'form-control', id:'title' %>
+          <div class="input-group-addon success">
+            <%= f.button :submit,
+                        class: "update_ex_cancel has-tooltip",
+                        style: "color: white",
+                        data: { title: 'Add' } do %>
+              <i class="glyphicon glyphicon-plus"></i>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group" id="titles">
+      <div class="col-xs-4">
+        <div class="input-group">
+          <p><strong>Title</strong></p>
+        </div>
+      </div>
+      <div class="col-xs-8">
+        <div class="input-group">
+          <p><strong>Url</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

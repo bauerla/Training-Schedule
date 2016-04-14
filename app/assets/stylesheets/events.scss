@@ -53,6 +53,37 @@
 			#description {
 			}
 			#media_container {
+				.video_container {
+				  position: relative;
+				  width: 100%;
+				  height: 0;
+				  padding-bottom: 51%;
+				  iframe {
+				  	padding: 15px;
+					  position: absolute;
+					  width: 100%;
+					  height: 100%;
+					  left: 0; top: 0;
+					}
+				}
+				form {
+					#text_fields {
+						margin-bottom: 2px;
+					}
+					#titles .input-group {
+						padding-left: 10px;
+					}
+				}
+				.input-group-addon {
+					&:hover, &:focus{
+						background: #6CD96C;
+					}
+				}
+				.input-group-addon button {
+					background: transparent;
+					border: none;
+					padding: 0;
+				}
 			}
 		}
 	}

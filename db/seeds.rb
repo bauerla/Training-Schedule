@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # Change value according to whether want to print extra debug info
-debug = true
+debug = false
 puts "-- Debugging on: #{debug} --"
 
 Event.destroy_all
@@ -95,6 +95,7 @@ n.times do
 	  	event.exercises.create!(desc: description, duration: t)
 	  end
   end
+  event.create_video!(link: 'kakkaa', title: 'lumella', published_at: DateTime.now)
 end
 
 # debugging & info

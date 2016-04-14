@@ -8,13 +8,13 @@
       </div>
       <div class="panel-body">
         <div class="row">
-          <div class="col-xs-6" id="description">
+          <div class="col-xs-4" id="description">
             <p>Description: <strong><%= @event.text %></strong></p>
             <p>Start: <strong><%= @event.starttime_time %></strong></p>
             <p>End: <strong><%= @event.endtime_time %></strong></p>
           </div>
-          <div class="col-xs-6" id="media_container">
-            <p>MEdia Container</p>
+          <div class="col-xs-8" id="media_container">
+            <%= render 'videos/video' %>
           </div>
         </div>
         <div class="row">
@@ -22,7 +22,9 @@
             <%= hidden_field_tag("current_ex", value = "") %>
             <% if @event.exercises.empty? %>
               <div class="no_events">
-                <p><font size="4.0em">No Exercises yet!</font> - Add some...</p>
+                <br>
+                <p><font size="5.0em">No Exercises yet!</font> - Add some...</p>
+                <br>
               </div>
             <% else %>
               <table class="table table-hover">
