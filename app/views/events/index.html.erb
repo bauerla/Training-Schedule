@@ -54,7 +54,7 @@
                       data: {title: 'Show details'} do %>
                           Show
                   <% end %>
-                  <%= content_tag(:span, Exercise.exercise_count(ev.id), class: "badge") if Exercise.exercise_count(ev.id) > 0 %>
+                  <%= content_tag(:span, Exercise.exercise_count(ev.id), class: "button badge") if Exercise.exercise_count(ev.id) > 0 %>
                 </div>
               </td>
               <td>

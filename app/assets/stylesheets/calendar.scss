@@ -37,13 +37,6 @@
 		width: 100%;
 		min-width: 750px;
 		table-layout: fixed;
-		tr {
-
-		}
-		td ul {
-			height: 100px;
-			overflow: hidden;
-		}
 		.day_headers {
 			height: 30px;
 			th {
@@ -58,6 +51,12 @@
 				background: rgba(160, 215, 160, 0.7);
 			}
 		}
+		.event_day.not-in-month {
+			cursor: pointer;
+			&:hover {
+				background: rgba(200, 215, 200, 0.7);
+			}
+		}
 		.not-in-month {
 			color: #EEEEEE;
 			background-color: #BFBFBF;
@@ -68,14 +67,16 @@
 			background-color: rgba(25, 150, 25, 0.1);
 		}
 		.event_item {
-			padding: 0 0 0 15px;
+			height: 100px;
+			overflow: hidden;
+			padding: 5px 0 0 0;
 			overflow: hidden;
 			color: #008000;
 			list-style-type: square;
 
 			a {
 				font-weight: normal;
-				margin-left: -5px;
+				padding: 5px;
 			}
 		}
 	}

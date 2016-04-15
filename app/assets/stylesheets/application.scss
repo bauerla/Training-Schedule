@@ -254,3 +254,15 @@ h1 small { vertical-align: middle; }
 .notopmargin {
   margin-top: 0 !important;
 }
+// Count bagde for buttons
+.badge {
+  background: #85cc88;
+  color: white;
+}
+.button.badge {
+  @extend .badge;
+  position: relative;
+  top: -40px;
+  right: -58px;
+  z-index: 1000;
+}

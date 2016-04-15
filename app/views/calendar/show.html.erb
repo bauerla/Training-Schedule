@@ -30,13 +30,15 @@
     <div class="panel panel-default">
       <%= calendar @date do |date| %>
         <%= date.day %>
-          <ul class="event_item">
+          <div class="event_item list-group">
             <% @events_by_date.each do |event| %>
               <% if event.starttime.to_date == date %>
-                <li><%= link_to event.title, event %></li>
+                <%= link_to event, class: 'list-group-item' do %><%= event.title %>
+                  <%= content_tag(:span, Exercise.exercise_count(event.id), class: "badge") if Exercise.exercise_count(event.id) > 0 %>
+                <% end %>
               <% end %>
             <% end %>
-          </ul>
+          </div>
         <% end %>
     </div>
   </div>

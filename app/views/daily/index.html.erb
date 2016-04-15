@@ -37,10 +37,13 @@
                 </td>
 
                 <td>
-                  <%= link_to 'Show', event_path(ev),
+                  <%= link_to event_path(ev),
                     class: "btn btn-sm btn-info has-tooltip",
                     style: "color: white",
-                    data: {title: 'Show details'} %>
+                    data: {title: 'Show details'} do %>
+                          Show
+                  <% end %>
+                  <%= content_tag(:span, Exercise.exercise_count(ev.id), class: "button badge") if Exercise.exercise_count(ev.id) > 0 %>
                 </td>
               </tr>
             </tbody>
