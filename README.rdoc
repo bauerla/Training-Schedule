@@ -1,28 +1,35 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This is a simple Rails application for scheduling Calendar Events for example training.
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Features:
+
+* Calendar month view where Events of each day are displayed
+* Display all Events at once
+* Display Events of spesific day (navigation through Calendar view)
+* Add, edit and remove Events
+* Define parts of the event and duration for them - add, edit, remove
+* Add Youtube video as example of training session, etc.
+
+Coming...
+
+* Comment Events
+* Mark Events done
+* User account creation - permissions for deletion and updating events
+* Weekly view
+
+= Usage
+
+- Cmd inside application folder:
+install gems
+* <tt>bundle install</tt>
+
+- create db with sample data
+* <tt>rake db:reseed</tt>
+else, only migrate
+* "rake db:migrate</tt>
+
+- run application locally (development)
+* <tt>rails server</tt>
+
