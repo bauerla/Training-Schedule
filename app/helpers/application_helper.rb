@@ -9,4 +9,9 @@ module ApplicationHelper
     { success: "alert-success", error: "alert-danger", alert: "alert-warning", notice: "alert-info" }[flash_type.to_sym] || flash_type.to_s
 	end
 
+  # Helper for display readable date
+  def parse_date(date)
+    date.empty? ? "" : date = date.to_date.to_formatted_s(:rfc822)
+  end
+
 end

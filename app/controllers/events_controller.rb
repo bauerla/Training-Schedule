@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
 
-	helper_method :parse_date, :youtube_embed
+	helper_method :youtube_embed
 
 	def index
 		@events = Event.order('starttime')
@@ -44,11 +44,6 @@ class EventsController < ApplicationController
 		@event.destroy
 		redirect_to events_path
 	end
-
-	# Helper for display readable date
-	def parse_date(date)
-    date.empty? ? "" : date = date.to_date.to_formatted_s(:rfc822)
-  end
 
   # Retrieve Youtube video inside iframe
   def youtube_embed(youtube_url)

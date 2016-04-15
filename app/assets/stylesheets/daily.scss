@@ -1,3 +1,21 @@
 // Place all the styles related to the daily controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.daily_container {
+  .daily.panel-heading {
+    vertical-align: middle;
+    .panel-title {
+      font-size: 27px;
+    }
+  }
+
+  .list_daily {
+    table {
+      .btn_container {
+        position: relative;
+        height: 38px;
+      }
+    }
+  }
+}

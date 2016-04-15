@@ -19,9 +19,9 @@
 
 	.list_events {
 		table {
-			.button_container {
+			.btn_container {
+				position:relative;
 				height: 38px;
-				#show_event_btn {}
 			}
 		}
 	}

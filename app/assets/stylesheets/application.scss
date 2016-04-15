@@ -261,8 +261,8 @@ h1 small { vertical-align: middle; }
 }
 .button.badge {
   @extend .badge;
-  position: relative;
-  top: -40px;
-  right: -58px;
+  position: absolute;
+  top: -5px;
+  right: -3px;
   z-index: 1000;
 }
