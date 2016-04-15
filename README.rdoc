@@ -21,15 +21,15 @@ Coming...
 
 = Usage
 
-- Cmd inside application folder:
+Cmd inside application folder:
 install gems
 * <tt>bundle install</tt>
 
-- create db with sample data
+create db with sample data
 * <tt>rake db:reseed</tt>
 else, only migrate
-* "rake db:migrate</tt>
+* <tt>rake db:migrate</tt>
 
-- run application locally (development)
+run application (development)
 * <tt>rails server</tt>
 
