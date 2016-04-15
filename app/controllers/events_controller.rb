@@ -50,18 +50,19 @@ class EventsController < ApplicationController
     date.empty? ? "" : date = date.to_date.to_formatted_s(:rfc822)
   end
 
+  # Retrieve Youtube video inside iframe
   def youtube_embed(youtube_url)
   if youtube_url[/youtu\.be\/([^\?]*)/]
     youtube_id = $1
-  else
-    # Regex from # http://stackoverflow.com/questions/3452546/javascript-regex-how-to-get-youtube-video-id-from-url/4811367#4811367
-    youtube_url[/^.*((v\/)|(embed\/)|(watch\?))\??v?=?([^\&\?]*).*/]
-    youtube_id = $5
+    else
+      # Regex from # http://stackoverflow.com/questions/3452546/javascript-regex-how-to-get-youtube-video-id-from-url/4811367#4811367
+      youtube_url[/^.*((v\/)|(embed\/)|(watch\?))\??v?=?([^\&\?]*).*/]
+      youtube_id = $5
+    end
+    html = ""
+    html += %Q{<iframe title="YouTube video player" width="auto" height="auto" src="http://www.youtube.com/embed/#{ youtube_id }" frameborder="0" allowfullscreen></iframe>}
+    html.html_safe
   end
-  html = ""
-  html += %Q{<iframe title="YouTube video player" width="auto" height="auto" src="http://www.youtube.com/embed/#{ youtube_id }" frameborder="0" allowfullscreen></iframe>}
-  html.html_safe
-end
 
 	private
 	def event_params

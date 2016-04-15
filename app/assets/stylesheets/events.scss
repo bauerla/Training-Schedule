@@ -19,7 +19,19 @@
 
 	.list_events {
 		table {
-
+			.button_container {
+				height: 38px;
+				#show_event_btn {
+				}
+				.badge {
+					background: #85cc88;
+					color: white;
+					position: relative;
+					top: -40px;
+   				right: -58px;
+					z-index: 1000;
+				}
+			}
 		}
 	}
 }
@@ -49,8 +61,9 @@
 			}
 		}
 		.panel-body {
-			padding: 15px;
+			padding-top: 15px;
 			#description {
+				padding-top: 15px;
 			}
 			#media_container {
 				.video_container {

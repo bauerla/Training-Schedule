@@ -2,11 +2,11 @@
   <div class="form-horizontal col-xs-12" role="form">
     <div class="form-group" id="text_fields">
       <div class="col-xs-4">
-        <%= f.text_field :title, type: "text", :value => '', class:'form-control', id:'link' %>
+        <%= f.text_field :title, type: "text", :value => '', :placeholder => @event.video.title, class:'form-control', id:'link' %>
       </div>
       <div class="col-xs-8">
         <div class="input-group">
-          <%= f.text_field :link, type: "text", :value => '', class:'form-control', id:'title' %>
+          <%= f.text_field :link, type: "text", :value => '', :placeholder => @event.video.link, class:'form-control', id:'title', required: true %>
           <div class="input-group-addon success">
             <%= f.button :submit,
                         class: "update_ex_cancel has-tooltip",

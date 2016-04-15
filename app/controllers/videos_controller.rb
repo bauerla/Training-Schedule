@@ -6,7 +6,7 @@ class VideosController < ApplicationController
     if @video = @event.create_video(video_params).valid?
       flash.keep[:success] = "New video added!"
     else
-      flash.keep[:alert] = "Description must be at least 5 characters long & duration integer value"
+      flash.keep[:alert] = "Cannot add video! -> Check your video link"
     end
     redirect_to event_path(@event)
   end
@@ -28,7 +28,7 @@ class VideosController < ApplicationController
       flash.keep[:success] = "video updated!"
       redirect_to event_url(@event)
     else
-      flash.keep[:warning] = "Check your parameters!"
+      flash.keep[:warning] = "Cannot update -> Check your video link!"
     end
   end
 

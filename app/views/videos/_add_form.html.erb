@@ -9,7 +9,7 @@
       </div>
       <div class="col-xs-8">
         <div class="input-group">
-          <%= f.text_field :link, type: "text", :placeholder => 'video link...', class:'form-control', id:'title' %>
+          <%= f.text_field :link, type: "text", :placeholder => 'video link...', class:'form-control', id:'title', required: true %>
           <div class="input-group-addon success">
             <%= f.button :submit,
                         class: "update_ex_cancel has-tooltip",

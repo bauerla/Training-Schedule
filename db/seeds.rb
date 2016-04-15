@@ -73,19 +73,19 @@ Event.destroy_all
 # 		which generates random data to populate database objects.
 @evs = Array.new
 @exers = Array.new
-n = Faker::Number.between(10, 15)
-
+@odd = true
+n = Faker::Number.between(30, 50)
 n.times do
   stime = Faker::Time.between(10.days.ago, DateTime.now + 40, :day)
   minFW = Faker::Number.between(30,180)
   etime = stime + 60*minFW
 	event = Event.create!(title: Faker::Team.sport.gsub(/\b\w/, &:upcase),
-												text: Faker::Shakespeare.king_richard_iii_quote,
+												text: Faker::Shakespeare.as_you_like_it_quote,
 												starttime: stime,
 												endtime: etime)
 	@evs.push(event) if debug
 
-	n = Faker::Number.between(2, 5)
+	n = Faker::Number.between(0, 5)
 	n.times do
 		t = Faker::Number.between(2, 25)
 		description = "#{Faker::Hacker.verb} #{Faker::Hacker.adjective} #{Faker::Hacker.noun}"
@@ -95,7 +95,12 @@ n.times do
 	  	event.exercises.create!(desc: description, duration: t)
 	  end
   end
-  event.create_video!(link: 'kakkaa', title: 'lumella', published_at: DateTime.now)
+  if @odd
+  	event.create_video!(link: 'https://www.youtube.com/watch?v=6QjIHnb5Ivs',
+	  										title: 'Cortez the Killer',
+	  										published_at: DateTime.now)
+  end
+  @odd ? @odd = false : @odd = true
 end
 
 # debugging & info
@@ -110,4 +115,5 @@ end
 
 puts "Created #{Event.count} events!"
 puts "Created #{Exercise.count} exercises!"
+puts "Created #{Video.count} videos!"
 puts ""

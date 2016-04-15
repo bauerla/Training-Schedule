@@ -233,3 +233,24 @@ textarea {
     }
   }
 }
+
+/***********************
+  Snippets
+************************/
+h1 small { vertical-align: middle; }
+
+.nosidepadding {
+   padding-left: 0 !important;
+   padding-right: 0 !important;
+}
+.novertmargin {
+  padding: 0 !important;
+  margin-top: 0 !important;
+}
+.nohorizmargin {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+.notopmargin {
+  margin-top: 0 !important;
+}
