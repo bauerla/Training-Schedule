@@ -32,6 +32,15 @@
                     <i style="font-size:2.0em;" class="glyphicon glyphicon-info-sign"></i>
                   <% end %>
                 </li>
+                <% if signed_in? %>
+                  <li id="nav_sign_in">
+                    <li><%= link_to 'Sign out', sign_out_path, method: :delete %></li>
+                  </li>
+                <% else %>
+                  <li id="nav_logout">
+                    <li><%= link_to 'Sign in', sign_in_path %></li>
+                  </li>
+                <% end %>
               </ul>
             </div>
           </div>

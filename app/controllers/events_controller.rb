@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-
+  before_action :require_login, only: [:new, :edit, :create, :update, :destroy]
 	helper_method :youtube_embed
 
 	def index

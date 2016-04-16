@@ -1,4 +1,5 @@
 class ExercisesController < ApplicationController
+  before_action :require_login, only: [:create, :update, :delete, :update_view]
 
   def create
     @event = Event.find(params[:event_id])
@@ -7,14 +8,6 @@ class ExercisesController < ApplicationController
     else
       flash.keep[:alert] = "Description must be at least 5 characters long & duration integer value"
     end
-    redirect_to event_path(@event)
-  end
-
-  def destroy
-    @event = Event.find(params[:event_id])
-    @exercise = @event.exercises.find(params[:id])
-    @exercise.destroy
-    flash.keep[:success] = "Exercise deleted!"
     redirect_to event_path(@event)
   end
 
@@ -27,6 +20,14 @@ class ExercisesController < ApplicationController
     else
       flash.keep[:warning] = "Check your parameters!"
     end
+  end
+
+  def destroy
+    @event = Event.find(params[:event_id])
+    @exercise = @event.exercises.find(params[:id])
+    @exercise.destroy
+    flash.keep[:success] = "Exercise deleted!"
+    redirect_to event_path(@event)
   end
 
   def update_view

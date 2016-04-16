@@ -41,6 +41,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Sweet Alert
 gem 'sweetalert2'
 
+# Clearence for authentication
+gem 'clearance'
+
 # Caching files - for development speed up
 gem 'dalli'
 
