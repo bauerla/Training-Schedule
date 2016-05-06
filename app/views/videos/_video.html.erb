@@ -1,18 +1,24 @@
 <% if @event.video.nil? %>
-  <%= render 'videos/add_form' %>
+  <% if signed_in? %>
+    <%= render 'videos/add_form' %>
+  <% end %>
 <% else %>
   <div class="video_container">
     <%= youtube_embed(@event.video.link) %>
   </div>
   <div class="col-xs-12">
-    <h3 class="pull-left" style="padding-left:10px;"><small>Update Video</small></h3>
     <p class="pull-right">
       <strong>Title:</strong> <%= @event.video.title %>
       <strong>Added:</strong> <%=@event.video.published_at %>
     </p>
   </div>
-  <br>
-  <%= render 'videos/update_form' %>
+  <% if signed_in? %>
+    <div class="col-xs-12">
+      <h3 class="pull-left" style="padding-left:10px;"><small>Update Video</small></h3>
+    </div>
+    <br>
+    <%= render 'videos/update_form' %>
+  <% end %>
 <% end %>
 
 

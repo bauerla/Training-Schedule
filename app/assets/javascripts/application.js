@@ -27,7 +27,9 @@
 var ready = function() {
 
   // Replacing default scrollbar
-  $("html").niceScroll();
+  $("html").niceScroll({ cursorcolor: "#5C6B5C",
+                         cursorwidth: "7px",
+                         autohidemode: false });
 
 	console.log('datepicker initialized');
 	$('.datepicker').datepicker({

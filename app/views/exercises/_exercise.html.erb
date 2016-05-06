@@ -6,26 +6,27 @@
   <td>
   	<%= exercise.duration %>min
   </td>
-  <td>
-	  <%= link_to "<i class=\"glyphicon glyphicon-edit\"></i>".html_safe,
-	      to_update_view_path(ex_id: exercise.id),
-	      :remote => true,
-	      id: 'update',
-	      class: 'btn btn-sm btn-primary has-tooltip',
-        data: { title: 'Edit' } %>
-	  <%= link_to [exercise.event, exercise],
-	      id: 'deletion',
-	      class: 'btn btn-sm btn-danger has-tooltip',
-	      method: :delete,
-	      data: {
-	        confirm: ' ',
-	        title: 'Delete',
-	        msg: 'Are you sure you want to delete this Exercise?'
-	      } do %>
-	    <i class="glyphicon glyphicon-trash"></i>
-	  <% end %>
-	</td>
-
+  <% if signed_in? %>
+    <td>
+  	  <%= link_to "<i class=\"glyphicon glyphicon-edit\"></i>".html_safe,
+  	      to_update_view_path(ex_id: exercise.id),
+  	      :remote => true,
+  	      id: 'update',
+  	      class: 'btn btn-sm btn-primary has-tooltip',
+          data: { title: 'Edit' } %>
+  	  <%= link_to [exercise.event, exercise],
+  	      id: 'deletion',
+  	      class: 'btn btn-sm btn-danger has-tooltip',
+  	      method: :delete,
+  	      data: {
+  	        confirm: ' ',
+  	        title: 'Delete',
+  	        msg: 'Are you sure you want to delete this Exercise?'
+  	      } do %>
+  	    <i class="glyphicon glyphicon-trash"></i>
+  	  <% end %>
+  	</td>
+  <% end %>
   <!-- Exercise update form - default: hidden -->
   <%= render partial: 'exercises/update_form', :locals => { :@update_ex => exercise } %>
 </tr>

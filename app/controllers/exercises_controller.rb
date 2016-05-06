@@ -1,5 +1,5 @@
 class ExercisesController < ApplicationController
-  before_action :require_login, only: [:create, :update, :delete, :update_view]
+  before_action :require_login, only: [:create, :update, :destroy, :update_view]
 
   def create
     @event = Event.find(params[:event_id])

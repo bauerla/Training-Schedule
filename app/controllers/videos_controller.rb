@@ -1,5 +1,5 @@
 class VideosController < ApplicationController
-  before_action :require_login, only: [:create, :update, :delete]
+  before_action :require_login, only: [:create, :update, :destroy]
 
   def create
     puts "VideosController - create"

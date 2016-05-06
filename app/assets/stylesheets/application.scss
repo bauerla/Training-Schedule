@@ -27,6 +27,13 @@
 }
 
 /***********************
+  main-container
+************************/
+  #main-container {
+    padding-top: 5px;
+  }
+
+/***********************
   Flash (partial)
 ************************/
 #flash_partial{
@@ -58,6 +65,7 @@
       @extend .container-fluid;
     }
   }
+  .nav.navbar-nav.pull-right { margin-right: -15px; }
   .navbar-brand {
     font-family: 'Indie Flower', cursive;
     font-size: 2.0em;

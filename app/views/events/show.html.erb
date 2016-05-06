@@ -52,12 +52,14 @@
             </table>
           <% end %>
         </div>
-        <div class="row">
-          <div class="add_exercise col-xs-6">
-            <h4 class="title_add_exercise col-xs-offset-3 col-xs-9">Add new exercise</h4>
-            <%= render 'exercises/form' %>
+        <% if signed_in? %>
+          <div class="row">
+            <div class="add_exercise col-xs-6">
+              <h4 class="title_add_exercise col-xs-offset-3 col-xs-9">Add new exercise</h4>
+              <%= render 'exercises/form' %>
+            </div>
           </div>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>

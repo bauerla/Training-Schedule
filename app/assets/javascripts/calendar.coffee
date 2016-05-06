@@ -4,7 +4,7 @@
 
 ready = ->
   # Replacing default scrollbar
-  $('.event_item').niceScroll cursorcolor: '#3C4B3C'
+  $('.event_item').niceScroll cursorcolor: "#5C6B5C"
 
   # Click day (with events)
   $('td[data-link]').click ->
