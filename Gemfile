@@ -47,6 +47,9 @@ gem 'clearance'
 # Caching files - for development speed up
 gem 'dalli'
 
+# NiceScroll replacement for scrollbars
+gem 'nicescroll-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

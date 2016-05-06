@@ -15,6 +15,7 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require jquery-ui/core
+//= require jquery.nicescroll
 // require jquery-ui/datepicker
 // require jquery-ui/datepicker-fi
 //= require bootstrap-sprockets
@@ -24,6 +25,10 @@
 
 
 var ready = function() {
+
+  // Replacing default scrollbar
+  $("html").niceScroll();
+
 	console.log('datepicker initialized');
 	$('.datepicker').datepicker({
 		dateFormat: 'yy-mm-dd'

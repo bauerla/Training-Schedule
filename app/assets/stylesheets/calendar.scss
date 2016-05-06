@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .nav_month{
-	margin-bottom: 15px;
+	margin-bottom: 5px;
 	vertical-align: middle;
 	a {
 		padding: 10px;
@@ -67,13 +67,14 @@
 			background-color: rgba(25, 150, 25, 0.1);
 		}
 		.event_item {
-			height: 100px;
+			height: 115px;
 			overflow: hidden;
-			padding: 5px 0 0 0;
-			overflow: hidden;
+			margin-bottom: 0;
+			padding: 5px 0 0 5px;
+			overflow-y: auto;
+			overflow-x: hidden;
 			color: #008000;
 			list-style-type: square;
-
 			a {
 				font-weight: normal;
 				padding: 5px;

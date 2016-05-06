@@ -3,6 +3,10 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 ready = ->
+  # Replacing default scrollbar
+  $('.event_item').niceScroll cursorcolor: '#3C4B3C'
+
+  # Click day (with events)
   $('td[data-link]').click ->
     console.log "data td clicked"
     window.location = $(this).data("link")
