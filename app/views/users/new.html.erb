@@ -1,0 +1,24 @@
+<div id="clearance" class="sign-up">
+  <div class="form-horizontal col-xs-8">
+    <div class="col-xs-offset-1 col-xs-11">
+      <h2><%= t(".title") %></h2>
+    </div>
+
+    <%= form_for @user do |form| %>
+      <%= render partial: '/users/form', object: form %>
+
+      <div class="form-group">
+        <div class="col-xs-offset-2 col-xs-11">
+          <%= form.submit class: "btn btn-small btn-success", style: "color: white" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="other-links col-xs-offset-2 col-xs-11">
+          <div class="other-links">
+            <%= link_to t(".sign_in"), sign_in_path %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
