@@ -35,9 +35,9 @@ run application (development)
 
 = Some solutions in case of errors
 
-<tt>bundle install</tt> problem with path
+<tt>bundle install</tt> -> "The system cannot find the path specified"
 * possible fix http://stackoverflow.com/a/35680810 | in <tt>bundle.bat</tt> file (~/RailsInstaller/Ruby2.2.0/bin)
 
-"execJS:Program error" when <tt>rails s(erver)</tt>
+'ExecJS::ProgramError' when running <tt>rails server</tt> -> problem with Coffee-script
 * Check that NodeJS is installed (x86 version preferred, even if x64 system)
 * Run <tt>npm install -g coffee-script</tt> to make sure coffee-script is properly installed
