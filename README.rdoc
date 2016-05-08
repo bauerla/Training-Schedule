@@ -36,7 +36,7 @@ run application (development)
 = Some solutions in case of errors
 
 <tt>bundle install</tt> problem with path
-* possible fix http://stackoverflow.com/a/35680810 | in <tt>bundle.bat</tt> file (~\RailsInstaller\Ruby2.2.0\bin)
+* possible fix http://stackoverflow.com/a/35680810 | in <tt>bundle.bat</tt> file (~/RailsInstaller/Ruby2.2.0/bin)
 
 "execJS:Program error" when <tt>rails s(erver)</tt>
 * Check that NodeJS is installed (x86 version preferred, even if x64 system)
