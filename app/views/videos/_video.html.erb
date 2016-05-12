@@ -5,11 +5,28 @@
 <% else %>
   <div class="video_container">
     <%= youtube_embed(@event.video.link) %>
+    <% if signed_in? %>
+      <div class="remove_video_container">
+        <%= link_to event_video_path(@event),
+            id: "deletion",
+            class: "btn btn-danger btn-circle has-tooltip",
+            method: :delete,
+            data: {
+                  confirm: ' ',
+                  title: 'Delete',
+                  msg: 'Are you sure you want to delete?'
+                  } do %>
+          <span class="glyphicon glyphicon-remove"></span>
+        <% end %>
+      </div>
+    <% end -%>
   </div>
   <div class="col-xs-12">
     <p class="pull-right">
-      <strong>Title:</strong> <%= @event.video.title %>
-      <strong>Added:</strong> <%=@event.video.published_at %>
+      <% if @event.video.title? %>
+        <strong>Title:</strong> <%= @event.video.title %>
+      <% end -%>
+      <strong>Added:</strong> <%= get_timestamp(@event.video.published_at) %>
     </p>
   </div>
   <% if signed_in? %>

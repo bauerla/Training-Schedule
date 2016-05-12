@@ -1,3 +1,26 @@
 // Place all the styles related to the Videos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.remove_video_container {
+  background: transparent;
+  color: white;
+  position: absolute;
+  top: -5px;
+  right: -3px;
+  z-index: 1000;
+
+  .btn-circle {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 25px;
+    line-height: 1.0;
+    border-radius: 20px;
+    span {
+      vertical-align: middle;
+    }
+  }
+}

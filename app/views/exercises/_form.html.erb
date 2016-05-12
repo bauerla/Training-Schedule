@@ -1,31 +1,31 @@
 <%= form_for([@event, @event.exercises.build]) do |f| %>
-<div class="form-horizontal">
-  <div class="form-group ">
-    <label for="description" class="control-label col-xs-3">Description</label>
-    <div class="col-xs-9">
-      <div class="input-group">
-        <%= f.text_area :desc, label:'Description', placeholder: 'Description of Exercise', class:'form-control', id:'description' %>
-        <div class="input-group-addon">
-          <span class="glyphicon glyphicon-pencil"></span>
+  <div class="form-horizontal">
+    <div class="form-group ">
+      <label for="description" class="control-label col-xs-3">Description</label>
+      <div class="col-xs-9">
+        <div class="input-group">
+          <%= f.text_area :desc, label:'Description', placeholder: 'Description of Exercise', class:'form-control', id:'description' %>
+          <div class="input-group-addon">
+            <span class="glyphicon glyphicon-pencil"></span>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="form-group ">
-    <label for="duration" class="control-label col-xs-3">Duration</label>
-    <div class="col-xs-9">
-      <div class="input-group">
-        <%= f.text_field :duration, label:'Duration (min)', placeholder: 'Minutes', class:'form-control', id:'duration' %>
-        <div class="input-group-addon">
-          <span class="glyphicon glyphicon-time"></span>
+    <div class="form-group ">
+      <label for="duration" class="control-label col-xs-3">Duration</label>
+      <div class="col-xs-9">
+        <div class="input-group">
+          <%= f.text_field :duration, label:'Duration (min)', placeholder: 'Minutes', class:'form-control', id:'duration' %>
+          <div class="input-group-addon">
+            <span class="glyphicon glyphicon-time"></span>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="form-group">
-    <div class="col-xs-offset-3 col-xs-9">
-      <%= f.submit "Add Exercise", class: "btn btn-small btn-success", style: "color: white" %>
+    <div class="form-group">
+      <div class="col-xs-offset-3 col-xs-9">
+        <%= f.submit "Add Exercise", class: "btn btn-small btn-success", style: "color: white" %>
+      </div>
     </div>
   </div>
-</div>
 <% end %>

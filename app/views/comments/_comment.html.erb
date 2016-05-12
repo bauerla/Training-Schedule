@@ -1,0 +1,11 @@
+<div class="row comment">
+  <div class="col-xs-offset-1 col-xs-10">
+    <p><strong><%= comment.commenter %></strong> <%= get_timestamp(comment.created_at) %></p>
+    <p id="comment_body"><%= comment.body %></p>
+  </div>
+  <div class="col-xs-1">
+    <div class="delete_comment">
+
+    </div>
+  </div>
+</div>

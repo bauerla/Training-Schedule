@@ -88,7 +88,17 @@
 </div>
 
 <!-- Navigation -->
-<div class="return_btn">
-  <%= link_to 'Back to Calendar', calendar_path, class: "btn btn-md btn-primary", style: "color: white" %>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="return_btn">
+      <%= link_to events_path,
+          class: "btn btn-small btn-primary",
+          style: "color: white" do %>
+        <span class="glyphicon glyphicon-arrow-left"></span>
+        Back to Calendar
+      <% end %>
+    </div>
+  </div>
 </div>
+>
 

@@ -17,7 +17,7 @@ class VideosController < ApplicationController
     @event = Event.find(params[:event_id])
     @video = @event.video
     if @video.update_attributes(video_params)
-      flash.keep[:success] = "video updated!"
+      flash.keep[:success] = "Video updated!"
       redirect_to event_url(@event)
     else
       flash.keep[:warning] = "Cannot update -> Check your video link!"
@@ -27,9 +27,9 @@ class VideosController < ApplicationController
   def destroy
     puts "VideosController - destroy"
     @event = Event.find(params[:event_id])
-    @video = @event.videos.find(params[:id])
-    @video.destroy
-    flash.keep[:success] = "video deleted!"
+    @video = @event.video
+    @video.delete
+    flash.keep[:success] = "Video deleted!"
     redirect_to event_path(@event)
   end
 
