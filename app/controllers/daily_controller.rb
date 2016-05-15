@@ -1,6 +1,7 @@
 require 'date'
 
 class DailyController < ApplicationController
+
   def index
     @date_string = ""
     @events = Array.new
@@ -12,6 +13,7 @@ class DailyController < ApplicationController
       @date_string = parse_date(@date)
     end
     puts @events.inspect
+    puts request.referer
   end
 
   private

@@ -14,13 +14,12 @@ module ApplicationHelper
     date.empty? ? "" : date = date.to_date.to_formatted_s(:rfc822)
   end
 
+  # Get time distance to current time
   def get_timestamp(date)
-    puts date.to_datetime
     if date.to_datetime > 1.day.ago
       date = time_difference(date.to_time, Time.now)
     else
       date = "#{distance_of_time_in_words_to_now(date.to_datetime)} ago"
-      #date = date.strftime("%e %b %Y at %M:%H")
     end
   end
 
@@ -32,15 +31,11 @@ module ApplicationHelper
       minutes = seconds_diff / 60
       seconds_diff -= minutes * 60
       seconds = seconds_diff
-
       if hours != 0
-        puts "tuntei"
         "#{pluralize(hours, 'hour')} #{pluralize(minutes, 'minute')} ago"
       elsif minutes != 0
-        puts "minuuttei"
         "#{pluralize(minutes, 'minute')} ago"
       else
-        puts "sekuntei"
         "#{pluralize(seconds, 'second')} ago"
       end
     end

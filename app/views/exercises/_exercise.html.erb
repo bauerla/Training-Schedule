@@ -8,11 +8,11 @@
   </td>
   <% if signed_in? %>
     <td>
-  	  <%= link_to "<i class=\"glyphicon glyphicon-edit\"></i>".html_safe,
+  	  <%= link_to "<i class=\"glyphicon glyphicon-cog\"></i>".html_safe,
   	      to_update_view_path(ex_id: exercise.id),
   	      :remote => true,
   	      id: 'update',
-  	      class: 'btn btn-sm btn-primary has-tooltip',
+  	      class: 'btn btn-sm btn-warning has-tooltip',
           data: { title: 'Edit' } %>
   	  <%= link_to [exercise.event, exercise],
   	      id: 'deletion',

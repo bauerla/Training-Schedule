@@ -32,7 +32,6 @@ class ExercisesController < ApplicationController
 
   def update_view
     @update_ex = Exercise.find(params[:ex_id])
-    puts "Event :: "+ @update_ex.inspect
     respond_to do |format|
       format.js
     end

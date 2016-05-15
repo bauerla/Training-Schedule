@@ -9,19 +9,25 @@ class VideosController < ApplicationController
     else
       flash.keep[:alert] = "Cannot add video! -> Check your video link"
     end
-    redirect_to event_path(@event)
+    redirect_to request.referrer
   end
 
   def update
     puts "VideosController - update"
     @event = Event.find(params[:event_id])
     @video = @event.video
-    if @video.update_attributes(video_params)
-      flash.keep[:success] = "Video updated!"
-      redirect_to event_url(@event)
+    puts video_params[:link]
+    puts @video.link
+    if @video.link != video_params[:link]
+      if @video.update_attributes(video_params)
+        flash.keep[:success] = "Video updated!"
+      else
+        flash.keep[:alert] = "Cannot update -> Check your video link!"
+      end
     else
-      flash.keep[:warning] = "Cannot update -> Check your video link!"
+      flash.keep[:alert] = "You're trying to add same video again"
     end
+    redirect_to request.referrer
   end
 
   def destroy
@@ -30,7 +36,7 @@ class VideosController < ApplicationController
     @video = @event.video
     @video.delete
     flash.keep[:success] = "Video deleted!"
-    redirect_to event_path(@event)
+    redirect_to request.referrer
   end
 
   private

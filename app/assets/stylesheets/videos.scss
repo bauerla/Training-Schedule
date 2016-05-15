@@ -2,25 +2,60 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#video_container {
+  h3 { margin: 5px 0 5px 0; }
+  p { margin: 0; }
+  .video_container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 51%;
+    iframe {
+      padding: 15px;
+      padding-bottom: 2px;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0; top: 0;
+    }
+  }
+  .form-horizontal {
+    #text_fields {
+      margin-bottom: 2px;
+    }
+    #titles .input-group {
+      padding-left: 10px;
+    }
+  }
+  .input-group-addon {
+    &:hover, &:focus{
+      background: #6CD96C;
+    }
+  }
+  .input-group-addon button {
+    background: transparent;
+    border: none;
+    padding: 0;
+  }
+  .remove_video_container {
+    background: transparent;
+    color: white;
+    position: absolute;
+    top: -5px;
+    right: -3px;
+    z-index: 1000;
 
-.remove_video_container {
-  background: transparent;
-  color: white;
-  position: absolute;
-  top: -5px;
-  right: -3px;
-  z-index: 1000;
-
-  .btn-circle {
-    width: 40px;
-    height: 40px;
-    text-align: center;
-    padding: 6px 0;
-    font-size: 25px;
-    line-height: 1.0;
-    border-radius: 20px;
-    span {
-      vertical-align: middle;
+    #deletion {
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      padding: 6px 0 6px 2px;
+      font-size: 25px;
+      line-height: 1.0;
+      border-radius: 20px;
+      span {
+        vertical-align: middle;
+      }
     }
   }
 }

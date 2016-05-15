@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_action :require_login, only: [:new, :edit, :create, :update, :destroy]
+  before_action "get_previous_url", only: [:show, :new]
 	helper_method :youtube_embed
 
 	def index
@@ -33,7 +34,8 @@ class EventsController < ApplicationController
 	def update
 		@event = Event.find(params[:id])
 		if @event.update(event_params)
-			redirect_to @event, :success => "Event updated!"
+			flash.now[:success] = "Event updated!"
+      render 'show'
 		else
 			render 'edit'
 		end
@@ -59,8 +61,24 @@ class EventsController < ApplicationController
     html.html_safe
   end
 
+  # Save url navigated from
+  def get_previous_url
+    @url_params = Rails.application.routes.recognize_path(request.referer)
+    @prev_ctrl = @url_params[:controller]
+    @date_from_url ||= @url_params[:date]
+    puts @prev_ctrl
+    puts @date_from_url
+  end
+
 	private
   	def event_params
-  		params.require(:event).permit(:title, :text, :starttime, :endtime, :starttime_time, :endtime_time, :starttime_date, :endtime_date)
+  		params.require(:event).permit(:title,
+                                    :text,
+                                    :starttime,
+                                    :endtime,
+                                    :starttime_time,
+                                    :endtime_time,
+                                    :starttime_date,
+                                    :endtime_date)
   	end
 end

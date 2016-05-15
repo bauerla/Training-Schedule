@@ -1,100 +1,118 @@
-<%= form_for @event do |f| %>
-  <% if @event.errors.any? %>
-    <div class="col-xs-offset-1 col-xs-7">
-      <div class="panel panel-danger">
-        <div class="panel-body">
-          <div id="error_explanation">
-            <h4>
-              Check following <%= pluralize(@event.errors.count, "error") %>:
-            </h4>
-            <ul>
-              <% @event.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-              <% end %>
-            </ul>
-          </div>
+<% if @event.errors.any? %>
+  <div class="col-xs-offset-1 col-xs-7">
+    <div class="panel panel-danger">
+      <div class="panel-body">
+        <div id="error_explanation">
+          <h4>
+            Check following <%= pluralize(@event.errors.count, "error") %>:
+          </h4>
+          <ul>
+            <% @event.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
         </div>
-      </div>
-    </div>
-  <% end %>
-
-  <div class="form-horizontal col-xs-8">
-    <div class="form-group">
-      <div class="col-xs-offset-2 col-xs-10" id="form_title">
-        <h2>Add new Trainisng</h2>
-      </div>
-    </div>
-    <div class="form-group">
-      <%= f.label :title, class: "control-label col-xs-2" %>
-      <div class="col-xs-10">
-        <div class="input-group">
-          <%= f.text_field :title, type: "text", :placeholder => "title", class: "form-control" %>
-          <div class="input-group-addon">
-            <span class="glyphicon glyphicon-header"></span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="form-group">
-      <%= f.label "Description", class: "control-label col-xs-2" %>
-      <div class="col-xs-10">
-        <div class="input-group">
-          <%= f.text_area :text, type: "text", :placeholder => "exercise description", class: "form-control" %>
-          <div class="input-group-addon">
-            <span class="glyphicon glyphicon-pencil"></span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="form-group" id="starttime_field">
-      <%= f.label :starttime, class: "control-label col-xs-2" %>
-      <div class="col-xs-3">
-        <div class="input-group">
-          <%= f.text_field :starttime_time, type: "text", :placeholder => 'hh:mm', :class => 'form-control', :size => 5, :maxlength => 5 %>
-          <div class="input-group-addon">
-            <span class="glyphicon glyphicon-time"></span>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-3">
-        <div class="input-group">
-          <%= f.text_field :starttime_date, type: "text", :placeholder => 'vvvv-kk-pp', :class => 'datepicker form-control', :size => 10, :maxlength => 10 %>
-          <div class="input-group-addon">
-            <span class="glyphicon glyphicon-calendar"></span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="form-group" id="endtime_field">
-      <%= f.label :endtime, class: "control-label col-xs-2" %>
-      <div class="col-xs-3">
-        <div class="input-group">
-          <%= f.text_field :endtime_time, type: "text", :placeholder => 'hh:mm', :class => 'form-control', :size => 5, :maxlength => 5 %>
-          <div class="input-group-addon">
-            <span class="glyphicon glyphicon-time"></span>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-3">
-        <div class="input-group">
-          <%= f.text_field :endtime_date, type: "text", :placeholder => 'vvvv-kk-pp', :class => 'datepicker form-control', :size => 10, :maxlength => 10 %>
-          <div class="input-group-addon">
-            <span class="glyphicon glyphicon-calendar"></span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="col-xs-offset-2 col-xs-11">
-        <%= f.submit "Add Event", class: "btn btn-small btn-success", style: "color: white" %>
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="col-xs-offset-2 col-xs-11">
-        <%= link_to 'Cancel', events_path, type: "submit", class: "btn btn-xsall btn-warning", style: "color: white"%>
       </div>
     </div>
   </div>
 <% end %>
+<div class="row">
+  <%= form_for @event do |f| %>
+    <div class="form-horizontal col-xs-6">
+      <div class="form-group">
+        <div class="col-xs-offset-2 col-xs-10" id="form_title">
+          <h3>Add new Training</h3>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :title, class: "control-label col-xs-2" %>
+        <div class="col-xs-10">
+          <div class="input-group">
+            <%= f.text_field :title, type: "text", :placeholder => "title", class: "form-control" %>
+            <div class="input-group-addon">
+              <span class="glyphicon glyphicon-header"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label "Description", class: "control-label col-xs-2" %>
+        <div class="col-xs-10">
+          <div class="input-group">
+            <%= f.text_area :text, type: "text", :placeholder => "exercise description", class: "form-control" %>
+            <div class="input-group-addon">
+              <span class="glyphicon glyphicon-pencil"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group" id="starttime_field">
+        <%= f.label :starttime, class: "control-label col-xs-2" %>
+        <div class="col-xs-4">
+          <div class="input-group">
+            <%= f.text_field :starttime_time, type: "text", :placeholder => 'hh:mm', :class => 'form-control', :size => 5, :maxlength => 5 %>
+            <div class="input-group-addon">
+              <span class="glyphicon glyphicon-time"></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-4">
+          <div class="input-group">
+            <%= f.text_field :starttime_date,
+                :value => @date_from_url || @event.starttime_date,
+                type: "text",
+                :placeholder => 'vvvv-kk-pp',
+                :class => 'datepicker form-control',
+                :size => 10,
+                :maxlength => 10 %>
+            <div class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group" id="endtime_field">
+        <%= f.label :endtime, class: "control-label col-xs-2" %>
+        <div class="col-xs-4">
+          <div class="input-group">
+            <%= f.text_field :endtime_time, type: "text", :placeholder => 'hh:mm', :class => 'form-control', :size => 5, :maxlength => 5 %>
+            <div class="input-group-addon">
+              <span class="glyphicon glyphicon-time"></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-4">
+          <div class="input-group">
+            <%= f.text_field :endtime_date,
+                :value => @date_from_url || @event.endtime_date,
+                type: "text",
+                :placeholder => 'vvvv-kk-pp',
+                :class => 'datepicker form-control',
+                :size => 10,
+                :maxlength => 10 %>
+            <div class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-xs-offset-2 col-xs-10">
+          <%= f.submit "Add Event", class: "btn btn-small btn-success", style: "color: white" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-xs-offset-2 col-xs-10">
+          <%= link_to 'Cancel', :back, type: "submit", class: "btn btn-xsall btn-warning", style: "color: white"%>
+        </div>
+      </div>
+    </div>
+  <% end %>
+    <div class="col-xs-offset-1 col-xs-5" id="video_add_info">
+      <h4>You can add video after Event creation</h4>
+      <p>Navigate to <strong>edit</strong> the newly added Event and there you'll find section to attach video to exercise.</p>
+    </div>
+</div>
+
