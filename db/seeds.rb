@@ -12,79 +12,31 @@ puts "-- Debugging on: #{debug} --"
 
 Event.destroy_all
 
-# Event.create!([{
-# 	title: "Jalkatreeni",
-# 	text: "Jalkatreeni päivä",
-# 	starttime: DateTime.new(2016,1,23,14,00),
-# 	endtime: DateTime.new(2016,1,23,14,30)
-# },
-# {
-# 	title: "Käsitreeni",
-# 	text: "Ojentajat, hauikset ja työnnöt",
-# 	starttime: DateTime.new(2016,1,21,16,15),
-# 	endtime: DateTime.new(2016,1,21,17,30),
-# 	completed: true
-# },
-# {
-# 	title: "Intervalli treeni",
-# 	text: "Interval juoksutreenit",
-# 	starttime: DateTime.new(2016,1,25,17,00),
-# 	endtime: DateTime.new(2016,1,25,18,30)
-# },
-# {
-# 	title: "Aerobic",
-# 	text: "Tunti aerobicia",
-# 	starttime: DateTime.new(2016,1,22,19,30),
-# 	endtime: DateTime.new(2016,1,22,20,30),
-# },
-# {
-# 	title: "Juoksulenkki",
-# 	text: "10 km maastolenkki",
-# 	starttime: DateTime.new(2016,2,3,18,30),
-# 	endtime: DateTime.new(2016,2,3,19,45),
-# },
-# {
-# 	title: "Jalkatreeni 2",
-# 	text: "Reidet ja takareidet - pyramid",
-# 	starttime: DateTime.new(2016,2,5,17,15),
-# 	endtime: DateTime.new(2016,2,5,18,45),
-# },
-# {
-# 	title: "Intervalli treeni",
-# 	text: "Interval juoksutreenit 2",
-# 	starttime: DateTime.new(2016,2,25,18,30),
-# 	endtime: DateTime.new(2016,2,25,19,45),
-# },
-# {
-# 	title: "Juoksulenkki",
-# 	text: "12 km lenkki",
-# 	starttime: DateTime.new(2016,2,29,14,30),
-# 	endtime: DateTime.new(2016,2,29,16,45),
-# },
-# {
-# 	title: "Jalkatreenit",
-# 	text: "Pohkeet ja kyykyt",
-# 	starttime: DateTime.new(2016,2,29,17,15),
-# 	endtime: DateTime.new(2016,2,29,18,45),
-# }])
-
 ## Add some Event and Exercise sample data
 # 		Creates new events using Faker helper gem
 # 		which generates random data to populate database objects.
 @evs = Array.new
 @exers = Array.new
+@comments = Array.new
 @odd = true
+
+@com_names = [Faker::StarWars, Faker::Superhero, Faker::Name]
+@com_types = [Faker::Hipster, Faker::Hacker, Faker::StarWars]
+
+#Create Events and child objects for them
 n = Faker::Number.between(30, 50)
 n.times do
   stime = Faker::Time.between(10.days.ago, DateTime.now + 40, :day)
   minFW = Faker::Number.between(30,180)
   etime = stime + 60*minFW
+  # Create event
 	event = Event.create!(title: Faker::Team.sport.gsub(/\b\w/, &:upcase),
 												text: Faker::Shakespeare.as_you_like_it_quote,
 												starttime: stime,
 												endtime: etime)
 	@evs.push(event) if debug
 
+  # Create exercises for event
 	n = Faker::Number.between(0, 5)
 	n.times do
 		t = Faker::Number.between(2, 25)
@@ -95,6 +47,33 @@ n.times do
 	  	event.exercises.create!(desc: description, duration: t)
 	  end
   end
+
+  # Some Comments for Event
+  n = Faker::Number.between(0, 10)
+  n.times do
+    for i in 0..1
+      t = Faker::Number.between(0, 2)
+      if t == 0
+        commenter = Faker::Boolean.boolean ? @com_names[0].character : @com_names[0].droid if i.eql?(0)
+        comment_text = @com_types[0].paragraph(1, true, 5) if i.eql?(1)
+      elsif t == 1
+        commenter = @com_names[1].name if i.eql?(0)
+        comment_text = @com_types[1].say_something_smart if i.eql?(1)
+      else
+        commenter = @com_names[2].name if i.eql?(0)
+        comment_text = @com_types[2].quote if i.eql?(1)
+      end
+    end
+    #commenter = Faker::Name.name
+    #comment_text =  = Faker::Hipster.paragraph(1, true, 5)
+    if debug
+      @comments.push(event.comments.create!(commenter: commenter, body: comment_text))
+    else
+      event.comments.create!(commenter: commenter, body: comment_text)
+    end
+  end
+
+  # Video for every second Event
   if @odd
   	event.create_video!(link: 'https://www.youtube.com/watch?v=6QjIHnb5Ivs',
 	  										title: 'Cortez the Killer',
@@ -116,4 +95,5 @@ end
 puts "Created #{Event.count} events!"
 puts "Created #{Exercise.count} exercises!"
 puts "Created #{Video.count} videos!"
+puts "Created #{Comment.count} comments!"
 puts ""

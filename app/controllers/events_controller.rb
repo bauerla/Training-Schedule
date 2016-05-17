@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :require_login, only: [:new, :edit, :create, :update, :destroy]
-  before_action "get_previous_url", only: [:show, :new]
+  before_action "get_previous_url", only: [:show, :new, :edit]
 	helper_method :youtube_embed
 
 	def index
@@ -67,6 +67,7 @@ class EventsController < ApplicationController
     @prev_ctrl = @url_params[:controller]
     @date_from_url ||= @url_params[:date]
     puts @prev_ctrl
+    puts @url_params
     puts @date_from_url
   end
 

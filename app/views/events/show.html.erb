@@ -114,13 +114,13 @@
 <div class="row">
   <div class="col-xs-12">
     <div id="btn_return">
-      <%= link_to events_path,
+      <%= link_to :back,
           class: "btn btn-small btn-primary",
           style: "color: white" do %>
         <span class="glyphicon glyphicon-arrow-left"></span>
         <% if @prev_ctrl.eql? "daily" %>Back to Events of day
         <% elsif @prev_ctrl.eql? "events" %>Back to Events
-        <% else %> Back
+        <% else %>Back
         <% end %>
       <% end %>
     </div>
