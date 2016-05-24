@@ -26,14 +26,26 @@ Event.destroy_all
 #Create Events and child objects for them
 n = Faker::Number.between(30, 50)
 n.times do
+  event = nil
   stime = Faker::Time.between(10.days.ago, DateTime.now + 40, :day)
   minFW = Faker::Number.between(30,180)
   etime = stime + 60*minFW
   # Create event
-	event = Event.create!(title: Faker::Team.sport.gsub(/\b\w/, &:upcase),
-												text: Faker::Shakespeare.as_you_like_it_quote,
-												starttime: stime,
-												endtime: etime)
+  if stime > Time.now
+  	event = Event.create!(title: Faker::Team.sport.gsub(/\b\w/, &:upcase),
+  												text: Faker::Shakespeare.as_you_like_it_quote,
+  												starttime: stime,
+  												endtime: etime)
+  else
+    event = Event.create!(title: Faker::Team.sport.gsub(/\b\w/, &:upcase),
+                          text: Faker::Shakespeare.as_you_like_it_quote,
+                          starttime: stime,
+                          endtime: etime,
+                          completed: true,
+                          done_summary: Faker::Lorem.paragraph(2, true, 5),
+                          done_additional: Faker::Company.catch_phrase,
+                          done_created_at: (etime + 2.hour))
+  end
 	@evs.push(event) if debug
 
   # Create exercises for event

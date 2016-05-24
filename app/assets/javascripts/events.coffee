@@ -35,6 +35,13 @@ ready = ->
         else
           swal 'Cancelled', 'Student delete has been cancelled', 'error'
         return
+
+  # Toggle visibility off completed Event (CSS animation)
+  $('#toggleEventShow').click (e) ->
+    console.log 'click'
+    $('.event_container').toggleClass 'completed'
+    return
+
   return
 
 $(document).ready ready

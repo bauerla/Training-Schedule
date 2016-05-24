@@ -11,7 +11,7 @@ module ApplicationHelper
 
   # Helper for display readable date
   def parse_date(date)
-    date.empty? ? "" : date = date.to_date.to_formatted_s(:rfc822)
+    date.to_date.to_formatted_s(:rfc822).empty? ? "" : date = date.to_date.to_formatted_s(:rfc822)
   end
 
   # Get time distance to current time

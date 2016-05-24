@@ -1,85 +1,159 @@
 <!-- Possible notifications -->
-<div class="show_container row">
-  <div class="col-xs-12">
-    <div class="panel panel-info">
-      <div class="panel-heading clearfix">
-        <p class="panel-title pull-left">
-          <strong id="heading"><%= @event.title %></strong>
-          <strong id="date"> - <%= parse_date(@event.starttime_date) %></strong>
-        </p>
-        <% if signed_in? %>
-          <div class="pull-right">
-            <div id="btn_group_title">
-              <%= link_to edit_event_path(@event),
-                  class: "btn btn-small btn-warning",
-                  style: "color: white" do %>
-                Edit
-                <span class="glyphicon glyphicon-cog"></span>
-              <% end %>
-              <%= link_to events_path,
-                  class: "btn btn-small btn-danger",
-                  style: "color: white" do %>
-                Delete
-                <span class="glyphicon glyphicon-trash"></span>
-              <% end %>
+<div class="show_container">
+  <% if @event.completed %>
+    <div class="event_done_container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="panel panel-success">
+            <div class="panel-heading">
+              <p class="panel-title pull-left">
+                <strong id="heading">Training Completed!</strong>
+              </p>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-xs-2">
+                  <div class="pull-right">
+                    <h3><strong>Details:</strong></h3>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-2">
+                  <div class="summary_heading pull-right">
+                    <h4>Summary:</h4>
+                  </div>
+                </div>
+                <div class="col-xs-9">
+                  <div class="summary_text">
+                    <h4><small><%= @event.done_summary %></small></h4>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-2">
+                  <div class="summary_heading pull-right">
+                    <h4>Additional info:</h4>
+                  </div>
+                </div>
+                <div class="col-xs-9">
+                  <div class="summary_text">
+                    <h4><small><%= @event.done_additional %></small></h4>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-3">
+                  <br>
+                  <small><strong>Update Time: </strong><%= get_timestamp(@event.done_created_at) %></small>
+                </div>
+              </div>
             </div>
           </div>
-        <% end %>
-      </div>
-      <div class="panel-body">
-        <div class="row">
-          <div class="col-xs-4" id="description">
-            <div class="row">
-               <h3 class="col-xs-12">Description</h3>
-            </div>
-            <div class="row">
-               <h3 class="col-xs-10 notopmargin"><small><%= @event.text %></small></h3>
-            </div>
-	          <div class="row">
-	            <h4 class="col-xs-4">Start time:</h4>
-	            <h4 class="col-xs-6"> <small><strong><%= @event.starttime_time %></strong></small></h4>
-	          </div>
-	          <div class="row">
-	            <h4 class="col-xs-4">End time:</h4>
-	            <h4 class="col-xs-6"> <small><strong><%= @event.endtime_time %></strong></small></h4>
-	          </div>
-        	</div>
-	        <div class="col-xs-8" id="video_container">
-	          <%= render 'videos/video' %>
-	        </div>
         </div>
       </div>
       <div class="row">
-        <div class="exercises_container col-xs-12">
-          <%= hidden_field_tag("current_ex", value = "") %>
-          <% if @event.exercises.empty? %>
-            <div class="no_events">
-              <br>
-              <p><font size="5.0em">No Exercises yet!</font> - Add some...</p>
-              <br>
-            </div>
-          <% else %>
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th>Exercise</th>
-                  <th>Duration</th>
-                </tr>
-              </thead>
-              <tbody>
-                <%= render @event.exercises %>
-              </tbody>
-            </table>
-          <% end %>
+        <div class="col-xs-10">
+          <button class="btn btn-small btn-primary" id="toggleEventShow">
+            Show Event details
+            <span class="glyphicon glyphicon-arrow-down"></span>
+          </button>
         </div>
-        <% if signed_in? %>
-          <div class="row">
-            <div class="add_exercise col-xs-6">
-              <h4 class="title_add_exercise col-xs-offset-3 col-xs-9">Add new exercise</h4>
-              <%= render 'exercises/form' %>
+      </div>
+    </div>
+  <% end %>
+  <div class="event_container <%= 'completed' if @event.completed %>" id="event">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="panel panel-info">
+          <div class="panel-heading clearfix">
+            <p class="panel-title pull-left">
+              <strong id="heading"><%= @event.title %></strong>
+              <strong id="date"> - <%= parse_date(@event.starttime_date) %></strong>
+            </p>
+            <% if signed_in? %>
+              <div class="pull-right">
+                <div id="btn_group_title">
+                  <% unless is_completed %>
+                    <button type="button" class="btn btn-small btn-primary" data-toggle="modal" data-target="#mark_completed">
+                      Mark as Done
+                      <span class="glyphicon glyphicon-ok"></span>
+                    </button>
+                  <% end -%>
+                  <%= link_to edit_event_path(@event),
+                      class: "btn btn-small btn-warning",
+                      style: "color: white" do %>
+                    Edit
+                    <span class="glyphicon glyphicon-cog"></span>
+                  <% end %>
+                  <%= link_to events_path,
+                      class: "btn btn-small btn-danger",
+                      style: "color: white" do %>
+                    Delete
+                    <span class="glyphicon glyphicon-trash"></span>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-xs-4">
+                <div class="row" id="description">
+                   <h3 class="col-xs-12">Description</h3>
+                </div>
+                <div class="row">
+                   <h3 class="col-xs-10 notopmargin"><small><%= @event.text %></small></h3>
+                </div>
+    	          <div class="row">
+    	            <h4 class="col-xs-4">Start time:</h4>
+    	            <h4 class="col-xs-6"> <small><strong><%= @event.starttime_time %></strong></small></h4>
+    	          </div>
+    	          <div class="row">
+    	            <h4 class="col-xs-4">End time:</h4>
+    	            <h4 class="col-xs-6"> <small><strong><%= @event.endtime_time %></strong></small></h4>
+    	          </div>
+            	</div>
+    	        <div class="col-xs-8" id="video_container">
+    	          <%= render 'videos/video' %>
+    	        </div>
+            </div>
+            <div class="row">
+              <div class="exercises_container col-xs-12">
+                <%= hidden_field_tag("current_ex", value = "") %>
+                <% unless @event.exercises.empty? %>
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th>Exercise</th>
+                        <th>Duration</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <%= render @event.exercises %>
+                    </tbody>
+                  </table>
+                <% end %>
+              </div>
+              <% if signed_in? && !@event.completed %>
+                <% if @event.exercises.empty?  %>
+                  <div class="row">
+                    <div class="no_events col-xs-offset-1 col-xs-9">
+                      <br>
+                      <p><font size="5.0em">No Exercises yet!</font> - Add some...</p>
+                    </div>
+                  </div>
+                <% end %>
+                <div class="row">
+                  <div class="add_exercise col-xs-6">
+                    <h4 class="title_add_exercise col-xs-offset-3 col-xs-9">Add new exercise</h4>
+                    <%= render 'exercises/form' %>
+                  </div>
+                </div>
+              <% end %>
             </div>
           </div>
-        <% end %>
+        </div>
       </div>
     </div>
   </div>
@@ -126,3 +200,6 @@
     </div>
   </div>
 </div>
+
+<!-- Modal -->
+<%= render 'events/completed_modal' %>

@@ -16,7 +16,7 @@ class ExercisesController < ApplicationController
     @exercise = @event.exercises.find(params[:id])
     if @exercise.update(exercise_params)
       flash.keep[:success] = "Exercise updated!"
-      redirect_to event_url(@event)
+      redirect_to event_path(@event)
     else
       flash.keep[:warning] = "Check your parameters!"
     end

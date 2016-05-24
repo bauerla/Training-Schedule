@@ -25,6 +25,7 @@ Rails.application.routes.draw do
 	get 'main/index', as: 'start_page'
 	get 'events/show'
 	get 'events/index'
+	get '/update_completed/:event_id' => 'events#event_done', as: 'update_completed'
 	get '/to_update_view/:ex_id' => 'exercises#update_view', as: 'to_update_view'
 	get 'daily/:date', to: 'daily#index'
 

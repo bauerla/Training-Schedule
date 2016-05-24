@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   before_action :require_login, only: [:new, :edit, :create, :update, :destroy]
   before_action "get_previous_url", only: [:show, :new, :edit]
-	helper_method :youtube_embed
+	helper_method :youtube_embed, :is_completed
 
 	def index
 		@events = Event.order('starttime')
@@ -41,11 +41,29 @@ class EventsController < ApplicationController
 		end
 	end
 
+  def event_done
+    puts "täällä ollaa #{params[:event_id]}"
+    event = Event.find(params[:event_id])
+    event.completed = true
+    event.done_created_at = DateTime.now
+    puts "params: #{event_done_params}"
+    if event.update(event_done_params)
+      flash.now[:success] = "Event updated!"
+      redirect_to event_path(event)
+    else
+      flash.now[:error] = "Something went wrong!"
+    end
+  end
+
 	def destroy
 		@event = Event.find(params[:id])
 		@event.destroy
-		redirect_to events_path
+		redirect_to request.referrer
 	end
+
+  def is_completed
+    is_completed = @event.completed
+  end
 
   # Retrieve Youtube video inside iframe
   def youtube_embed(youtube_url)
@@ -76,10 +94,13 @@ class EventsController < ApplicationController
   		params.require(:event).permit(:title,
                                     :text,
                                     :starttime,
-                                    :endtime,
-                                    :starttime_time,
-                                    :endtime_time,
-                                    :starttime_date,
-                                    :endtime_date)
+                                    :endtime,)
   	end
+
+    def event_done_params
+      params.require(:event).permit(:compeleted,
+                                    :done_summary,
+                                    :done_additional,
+                                    :done_created_at)
+    end
 end
