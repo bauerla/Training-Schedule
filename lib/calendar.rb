@@ -48,7 +48,6 @@ class Calendar < Struct.new(:view, :date, :callback)
 			link << "/daily"
 			link << "/"
 			link << day.to_date.to_s
-			puts "date was : #{day.to_date.to_s}"
 		end
 		link.empty? ? nil : link.join("")
 	end

@@ -115,7 +115,9 @@
     	          </div>
             	</div>
     	        <div class="col-xs-8" id="video_container">
-    	          <%= render 'videos/video' %>
+                <% unless @event.video.nil? %>
+    	           <%= render 'videos/video' %>
+                <% end %>
     	        </div>
             </div>
             <div class="row">

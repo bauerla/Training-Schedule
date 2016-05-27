@@ -29,17 +29,31 @@
   <div class="col-md-12">
     <div class="panel panel-default">
       <%= calendar @date do |date| %>
-        <%= date.day %>
-          <div class="event_item list-group">
-            <% @events_by_date.each do |event| %>
-              <% if event.starttime.to_date == date %>
-                <%= link_to event, class: 'list-group-item' do %><%= event.title %>
-                  <%= content_tag(:span, Exercise.exercise_count(event.id), class: "badge") if Exercise.exercise_count(event.id) > 0 %>
-                <% end %>
+        <div class="day_header_content">
+          <%= date.day %>
+          <% if signed_in? %>
+            <div class="add_event_link pull-right">
+              <%= link_to new_event_path(:date => date),
+                  class: "btn btn-xs btn-success has-tooltip",
+                  data: {
+                    title: 'New Event',
+                    placement: 'top'
+                  } do %>
+                <i style="font-size:1.2em;" class="glyphicon glyphicon-plus"></i>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+        <div class="event_item list-group col-xs-12">
+          <% @events_by_date.each do |event| %>
+            <% if event.starttime.to_date == date %>
+              <%= link_to event, class: 'list-group-item' do %><%= event.title %>
+                <%= content_tag(:span, Exercise.exercise_count(event.id), class: "badge") if Exercise.exercise_count(event.id) > 0 %>
               <% end %>
             <% end %>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

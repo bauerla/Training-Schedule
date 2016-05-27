@@ -42,7 +42,6 @@ class EventsController < ApplicationController
 	end
 
   def event_done
-    puts "täällä ollaa #{params[:event_id]}"
     event = Event.find(params[:event_id])
     event.completed = true
     event.done_created_at = DateTime.now
@@ -83,7 +82,12 @@ class EventsController < ApplicationController
   def get_previous_url
     @url_params = Rails.application.routes.recognize_path(request.referer)
     @prev_ctrl = @url_params[:controller]
-    @date_from_url ||= @url_params[:date]
+    if @prev_ctrl == "calendar"
+      @date_from_url ||= params[:date]
+      starttime_date ||= @date_from_url
+    else
+      @date_from_url ||= @url_params[:date]
+    end
     puts @prev_ctrl
     puts @url_params
     puts @date_from_url
@@ -94,7 +98,11 @@ class EventsController < ApplicationController
   		params.require(:event).permit(:title,
                                     :text,
                                     :starttime,
-                                    :endtime,)
+                                    :endtime,
+                                    :starttime_time,
+                                    :starttime_date,
+                                    :endtime_time,
+                                    :endtime_date)
   	end
 
     def event_done_params
