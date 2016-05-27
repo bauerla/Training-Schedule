@@ -34,6 +34,10 @@ run application (development)
 * <tt>rails server</tt>
 
 = Some solutions in case of errors
+==== Windows:
+
+<tt>rake db:reseed etc.</tt> -> "Errno::ENOENT: No such file or directory @ rb_sysopen - /dev/null" or something similar
+* Make change to Logger setting in <tt>quiet_assets.rb</tt> -> http://stackoverflow.com/a/12685159
 
 <tt>bundle install</tt> -> "The system cannot find the path specified"
 * possible fix http://stackoverflow.com/a/35680810 | in <tt>bundle.bat</tt> file (~/RailsInstaller/Ruby2.2.0/bin)
