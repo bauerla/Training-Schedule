@@ -54,6 +54,18 @@
 		  top: 0;
 		  right: -3px;
 		  z-index: 1000;
+		  opacity: 0;
+			transition: opacity 0.5s ease-in-out;
+	    -moz-transition: opacity 0.5s ease-in-out;
+	    -webkit-transition: opacity 0.5s ease-in-out;
+	    -o-transition: opacity 0.5s ease-in-out;
+	    &.hover {
+	    	opacity: 1;
+				transition: opacity 0.25s ease-in-out;
+		    -moz-transition: opacity 0.25s ease-in-out;
+		    -webkit-transition: opacity 0.25s ease-in-out;
+		    -o-transition: opacity 0.25s ease-in-out;
+	    }
 			a {
 				padding: 2px 2px 0 5px;
 			}
