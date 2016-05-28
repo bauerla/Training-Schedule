@@ -1,25 +1,23 @@
 == README
 
-This is a simple Rails application for scheduling Calendar Events for example training.
+This is a simple Rails application for scheduling Calendar Events for example training
 
 
-Features:
-
+=====Features:
 * Calendar month view where Events of each day are displayed
-* Display all Events at once
-* Display Events of spesific day (navigation through Calendar view)
-* Add, edit and remove Events
-* Define parts of the event and duration for them - add, edit, remove
-* Add Youtube video as example of training session, etc.
-
-Coming...
-
-* Comment Events
-* Mark Events done
+* View all Events view
+* Display Events of spesific day (navigation through Calendar)
+* Add, edit and remove Events (simple sign up required)
+* Create sub-events(exercises) for Events - topic, description, duration + add, edit & remove actions
+* Add Youtube video for as an example of training session, etc.
+* Leave comments for Events
+* Mark Event as done with summary text
 * User account creation - permissions for deletion and updating events
+
+=====Planed features...
 * Weekly view
 
-= Usage
+===Usage
 
 Cmd inside application folder:
 install gems
@@ -33,8 +31,8 @@ else, only migrate
 run application (development)
 * <tt>rails server</tt>
 
-= Some solutions in case of errors
-==== Windows:
+===Some solutions in case of errors
+=====Windows:
 
 <tt>rake db:reseed etc.</tt> -> "Errno::ENOENT: No such file or directory @ rb_sysopen - /dev/null" or something similar
 * Make change to Logger setting in <tt>quiet_assets.rb</tt> -> http://stackoverflow.com/a/12685159
