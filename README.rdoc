@@ -1,6 +1,6 @@
 == README
 
-This is a simple Rails application for scheduling Calendar Events for example training
+This is a simple Rails application for scheduling Calendar Events, example for training.
 
 
 =====Features:
