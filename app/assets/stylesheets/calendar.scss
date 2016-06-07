@@ -73,24 +73,25 @@
 	}
 	.event_day {
 		cursor: pointer;
-		&:hover {
-			background: rgba(160, 215, 160, 0.7);
+		&:hover, &:focus {
+			background: #DDE2E5;
 		}
 	}
 	.event_day.not-in-month {
 		cursor: pointer;
-		&:hover {
-			background: rgba(200, 215, 200, 0.7);
+		&:hover, &:focus {
+			background: #DDE2E5;
+			color: #888888;
 		}
 	}
 	.not-in-month {
 		color: #EEEEEE;
-		background-color: #BFBFBF;
+		background-color: #8C9EBD;
 	}
 	.today {
 		color: #007817;
 		font-weight: bold;
-		background-color: rgba(25, 150, 25, 0.1);
+		background-color: rgba(60, 200, 63, 0.3);
 	}
 	.event_item {
 		height: 115px;
@@ -101,9 +102,13 @@
 		overflow-x: hidden;
 		color: #008000;
 		list-style-type: square;
-		a {
+		a.list-group-item {
 			font-weight: normal;
 			padding: 5px;
+			&:hover, &:focus {
+				background: #577492;
+				color: white;
+			}
 		}
 	}
 }
