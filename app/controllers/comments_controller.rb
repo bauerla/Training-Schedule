@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
     if @comment = @event.comments.create(comment_params).valid?
       flash.keep[:success] = "New comment added!"
     else
-      flash.keep[:alert] = "Name must be over 2 characters long and comment not empty"
+      flash.keep[:alert] = "Name must be at least 2 characters & comment can't be blank"
     end
     redirect_to event_path(@event)
   end
@@ -12,9 +12,13 @@ class CommentsController < ApplicationController
   def destroy
     @event = Event.find(params[:event_id])
     @comment = @event.comments.find(params[:id])
-    @comment.delete
-    flash.keep[:success] = "Comment removed!"
-    redirect_to event_path(@event)
+    if @comment.delete
+      flash.keep[:success] = "Comment removed!"
+      redirect_to event_path(@event)
+    else
+      flash.keep[:error] = "Couldn't remove comment!"
+      redirect_to event_path(@event)
+    end
   end
 
   private

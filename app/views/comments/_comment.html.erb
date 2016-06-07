@@ -5,7 +5,17 @@
   </div>
   <div class="col-xs-1">
     <div class="delete_comment">
-
+      <%= link_to [comment.event, comment],
+          id: "deletion",
+          class: "btn btn-danger has-tooltip",
+          method: :delete,
+          data: {
+                confirm: ' ',
+                title: 'Delete',
+                msg: 'Are you sure you want to delete?'
+                } do %>
+        <span class="glyphicon glyphicon-remove"></span>
+      <% end %>
     </div>
   </div>
 </div>

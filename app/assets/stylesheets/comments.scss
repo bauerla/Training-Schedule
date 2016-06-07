@@ -21,8 +21,26 @@
     #comment_body {
       font-size: 1.0em;
     }
-    .comment {
+    .row.comment {
       margin-bottom: 15px;
+      .delete_comment {
+        padding-top: 50%;
+        padding-bottom: 100%;
+        margin-bottom: -100%;
+        text-align: center;
+        #deletion {
+          display: inline-block;
+          width: 26px;
+          height: 26px;
+          padding: 2px 1px 1px 2px;
+          font-size: 18px;
+          line-height: 1.0;
+          border-radius: 20px;
+          span {
+            vertical-align: middle;
+          }
+        }
+      }
     }
   }
   .comments_form {
