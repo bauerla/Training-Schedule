@@ -5,9 +5,9 @@ class VideosController < ApplicationController
     puts "VideosController - create"
     @event = Event.find(params[:event_id])
     if @video = @event.create_video(video_params).valid?
-      flash.keep[:success] = "New video added!"
+      flash.keep[:success] = "New video saved!"
     else
-      flash.keep[:alert] = "Cannot add video! -> Check your video link"
+      flash.keep[:alert] = "Cannot add video - Check your video link!"
     end
     redirect_to request.referrer
   end
@@ -18,14 +18,14 @@ class VideosController < ApplicationController
     @video = @event.video
     puts video_params[:link]
     puts @video.link
-    if @video.link != video_params[:link]
+    if @video.link == video_params[:link]
+      flash.keep[:alert] = "Video already exists!"
+    else
       if @video.update_attributes(video_params)
         flash.keep[:success] = "Video updated!"
       else
-        flash.keep[:alert] = "Cannot update -> Check your video link!"
+        flash.keep[:alert] = "Cannot update - Check your video link!"
       end
-    else
-      flash.keep[:alert] = "You're trying to add same video again"
     end
     redirect_to request.referrer
   end

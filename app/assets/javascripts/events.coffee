@@ -40,6 +40,7 @@ ready = ->
   $('#toggleEventShow').click (e) ->
     console.log 'click'
     $('.event_container').toggleClass 'completed'
+    $(this).closest('.row').slideUp()
     return
 
   return

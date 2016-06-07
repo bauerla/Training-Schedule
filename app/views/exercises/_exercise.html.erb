@@ -6,7 +6,7 @@
   <td>
   	<%= exercise.duration %>min
   </td>
-  <% if signed_in? %>
+  <% if signed_in? && !@event.completed %>
     <td>
   	  <%= link_to "<i class=\"glyphicon glyphicon-cog\"></i>".html_safe,
   	      to_update_view_path(ex_id: exercise.id),

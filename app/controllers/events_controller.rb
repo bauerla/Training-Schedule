@@ -41,6 +41,7 @@ class EventsController < ApplicationController
 		end
 	end
 
+  # Mark event as completed - update db
   def event_done
     event = Event.find(params[:event_id])
     event.completed = true
@@ -60,6 +61,7 @@ class EventsController < ApplicationController
 		redirect_to request.referrer
 	end
 
+  # return boolean if event marked as completed
   def is_completed
     is_completed = @event.completed
   end
@@ -88,6 +90,7 @@ class EventsController < ApplicationController
     else
       @date_from_url ||= @url_params[:date]
     end
+    #debug
     puts @prev_ctrl
     puts @url_params
     puts @date_from_url

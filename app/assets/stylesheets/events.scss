@@ -92,6 +92,9 @@
 				}
 				#btn_group_title {
 					margin-right: 15px;
+					&.completed {
+						display: none;
+					}
 				}
 			}
 			.panel-body {

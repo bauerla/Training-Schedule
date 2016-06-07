@@ -14,7 +14,7 @@
               <div class="row">
                 <div class="col-xs-2">
                   <div class="pull-right">
-                    <h3><strong>Details:</strong></h3>
+                    <h3><strong>Details</strong></h3>
                   </div>
                 </div>
               </div>
@@ -73,7 +73,7 @@
             </p>
             <% if signed_in? %>
               <div class="pull-right">
-                <div id="btn_group_title">
+                <div id="btn_group_title" class="<%= 'completed' if @event.completed %>">
                   <% unless is_completed %>
                     <button type="button" class="btn btn-small btn-primary" data-toggle="modal" data-target="#mark_completed">
                       Mark as Done
