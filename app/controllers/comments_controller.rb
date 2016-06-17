@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :require_login, only: [:destroy]
+
   def create
     @event = Event.find(params[:event_id])
     if @comment = @event.comments.create(comment_params).valid?
