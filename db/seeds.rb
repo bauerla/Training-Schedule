@@ -106,6 +106,6 @@ end
 
 puts "Created #{Event.count} events!"
 puts "Created #{Exercise.count} exercises!"
-puts "Created #{Video.count} videos!"
 puts "Created #{Comment.count} comments!"
+puts "Created #{Video.count} videos!"
 puts ""

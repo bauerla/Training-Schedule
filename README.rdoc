@@ -23,12 +23,12 @@ Cmd inside application folder:
 install gems
 * <tt>bundle install</tt>
 
-create db with sample data
+Create db with sample data - Events, Exercises(parts of Event), Comments, Videos for Events
 * <tt>rake db:reseed</tt>
 else, only migrate
 * <tt>rake db:migrate</tt>
 
-run application (development)
+Run application (development)
 * <tt>rails server</tt>
 
 ===Some solutions in case of errors
