@@ -47,4 +47,4 @@ Run application (development)
 
 ===Notes
 
-*If you request password reset (via Sign in page) you find reset link in rails console if you entered valid email address.
+* If you request password reset (via Sign in page) you'll find a reset link in rails console. Only if you entered valid email address.
