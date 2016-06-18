@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
-  resource :session, controller: "clearance/sessions", only: [:create]
+  resource :session, controller: "sessions", only: [:create]
 
   resources :users, controller: "clearance/users", only: [:create] do
     resource :password,
@@ -9,8 +9,8 @@ Rails.application.routes.draw do
       only: [:create, :edit, :update]
   end
 
-  get "/sign_in" => "clearance/sessions#new", as: "sign_in"
-  delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
+  get "/sign_in" => "sessions#new", as: "sign_in"
+  delete "/sign_out" => "sessions#destroy", as: "sign_out"
   get "/sign_up" => "clearance/users#new", as: "sign_up"
 	resource :calendar, only: [:show], controller: :calendar
 	resources :events
@@ -30,6 +30,7 @@ Rails.application.routes.draw do
 	get 'daily/:date', to: 'daily#index'
 
 	root 'calendar#show'
+
 
 	# The priority is based upon order of creation: first created -> highest priority.
 	# See how all your routes lay out with "rake routes".

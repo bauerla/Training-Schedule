@@ -43,3 +43,8 @@ Run application (development)
 'ExecJS::ProgramError' when running <tt>rails server</tt> -> problem with Coffee-script
 * Check that NodeJS is installed (x86 version preferred, even if x64 system)
 * Run <tt>npm install -g coffee-script</tt> to make sure coffee-script is properly installed
+
+
+===Notes
+
+*If you request password reset (via Sign in page) you find reset link in rails console if you entered valid email address.
