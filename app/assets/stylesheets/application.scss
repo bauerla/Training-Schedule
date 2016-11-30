@@ -272,6 +272,12 @@ textarea {
   }
 }
 
+@media only screen and (max-width: 992px) {
+  .badge {
+    display: none;
+  }
+}
+
 /***********************
   Snippets
 ************************/

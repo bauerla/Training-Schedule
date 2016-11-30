@@ -13,11 +13,9 @@ ready = ->
 
   $('.calendar td').hover ( ->
     $(this).children('.day_header_content').find('.add_event_link').addClass 'hover'
-    console.log 'lisätään luokkaa...'
     return
     ), ->
     $(this).children('.day_header_content').find('.add_event_link').removeClass 'hover'
-    console.log 'poistetaan luokkaa...'
     return
 
 $(document).ready ready
