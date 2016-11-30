@@ -1,6 +1,7 @@
 class ExercisesController < ApplicationController
   before_action :require_login, only: [:create, :update, :destroy, :update_view]
 
+  # Create bew Exercise
   def create
     @event = Event.find(params[:event_id])
     if @exercise = @event.exercises.create(exercise_params).valid?
@@ -11,6 +12,7 @@ class ExercisesController < ApplicationController
     redirect_to event_path(@event)
   end
 
+  # Update Exercise
   def update
     @event = Event.find(params[:event_id])
     @exercise = @event.exercises.find(params[:id])
@@ -22,6 +24,7 @@ class ExercisesController < ApplicationController
     end
   end
 
+  # Remove Exercise
   def destroy
     @event = Event.find(params[:event_id])
     @exercise = @event.exercises.find(params[:id])
@@ -30,6 +33,7 @@ class ExercisesController < ApplicationController
     redirect_to event_path(@event)
   end
 
+  # Update view handling
   def update_view
     @update_ex = Exercise.find(params[:ex_id])
     respond_to do |format|
@@ -38,6 +42,7 @@ class ExercisesController < ApplicationController
   end
 
   private
+    # Validate Exercise params
     def exercise_params
       params.require(:exercise).permit(:desc, :duration)
     end

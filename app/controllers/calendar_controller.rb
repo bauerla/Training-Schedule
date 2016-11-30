@@ -5,6 +5,7 @@ class CalendarController < ApplicationController
 	def index
 	end
 
+	# Show Calendar
 	def show
 		@date = params[:date] ? Date.parse(params[:date]) : Date.today
 		logger.debug @date.beginning_of_day

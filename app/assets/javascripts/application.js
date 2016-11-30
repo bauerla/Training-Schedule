@@ -53,7 +53,7 @@ var ready = function() {
 		console.log("event_day clicked!");
 	});
 
-	/* flash message auto-close functions */
+  /* flash message auto-close functions */
   function fadeAlert(){
     $('.alert-custom').removeClass('in');
   }

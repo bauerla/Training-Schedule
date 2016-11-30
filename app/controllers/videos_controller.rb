@@ -1,6 +1,7 @@
 class VideosController < ApplicationController
   before_action :require_login, only: [:create, :update, :destroy]
 
+  # Create Video
   def create
     puts "VideosController - create"
     @event = Event.find(params[:event_id])
@@ -12,6 +13,7 @@ class VideosController < ApplicationController
     redirect_to request.referrer
   end
 
+  # Update Video
   def update
     puts "VideosController - update"
     @event = Event.find(params[:event_id])
@@ -30,6 +32,7 @@ class VideosController < ApplicationController
     redirect_to request.referrer
   end
 
+  # Remove Video
   def destroy
     puts "VideosController - destroy"
     @event = Event.find(params[:event_id])
@@ -40,6 +43,7 @@ class VideosController < ApplicationController
   end
 
   private
+    # Validate Video params
     def video_params
       params.require(:video).permit(:link, :title, :published_at)
     end

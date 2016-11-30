@@ -3,23 +3,28 @@ class EventsController < ApplicationController
   before_action "get_previous_url", only: [:show, :new, :edit]
 	helper_method :youtube_embed, :is_completed
 
+  # Show all Events
 	def index
 		@events = Event.order('starttime')
 	end
 
+  # Show Event
 	def show
 		@event = Event.find(params[:id])
 	end
 
+  # Define new Event
 	def new
 		@event = Event.new
     @video = @event.build_video
 	end
 
+  # Edit Event
 	def edit
 		@event = Event.find(params[:id])
 	end
 
+  # Create new Event
 	def create
 		@event = Event.new(event_params)
 		if @event.save
@@ -31,6 +36,7 @@ class EventsController < ApplicationController
 		end
 	end
 
+  # Update Event
 	def update
 		@event = Event.find(params[:id])
 		if @event.update(event_params)
@@ -41,7 +47,7 @@ class EventsController < ApplicationController
 		end
 	end
 
-  # Mark event as completed - update db
+  # Mark event as completed and update database
   def event_done
     event = Event.find(params[:event_id])
     event.completed = true
@@ -55,6 +61,7 @@ class EventsController < ApplicationController
     end
   end
 
+  # Remove Event
 	def destroy
 		@event = Event.find(params[:id])
 		@event.destroy
@@ -97,6 +104,7 @@ class EventsController < ApplicationController
   end
 
 	private
+    # Validate event params when creating new
   	def event_params
   		params.require(:event).permit(:title,
                                     :text,
@@ -108,6 +116,7 @@ class EventsController < ApplicationController
                                     :endtime_date)
   	end
 
+    # Validate params when completing Event
     def event_done_params
       params.require(:event).permit(:compeleted,
                                     :done_summary,

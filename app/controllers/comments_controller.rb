@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   before_action :require_login, only: [:destroy]
 
+  # Create comment
   def create
     @event = Event.find(params[:event_id])
     if @comment = @event.comments.create(comment_params).valid?
@@ -11,6 +12,7 @@ class CommentsController < ApplicationController
     redirect_to event_path(@event)
   end
 
+  # Remove comment
   def destroy
     @event = Event.find(params[:event_id])
     @comment = @event.comments.find(params[:id])
@@ -24,6 +26,7 @@ class CommentsController < ApplicationController
   end
 
   private
+    # Validate params
     def comment_params
       params.require(:comment).permit(:commenter, :body)
     end
