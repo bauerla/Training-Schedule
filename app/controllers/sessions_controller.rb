@@ -19,5 +19,5 @@ before_filter :store_last_location, only: [:new, :destroy]
     def store_last_location
       session[:return_to] = request.referer unless URI(request.referer).path == "/passwords"
     end
-  end
+
 end
