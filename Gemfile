@@ -54,7 +54,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   # Creating test data
-  gem 'faker'
+  gem 'faker', '~> 1.7', '>= 1.7.3'
 end
 
 group :development do
@@ -64,3 +64,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# Faker needs this on runtime
+gem 'i18n'
