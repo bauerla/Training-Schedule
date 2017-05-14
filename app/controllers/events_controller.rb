@@ -1,6 +1,8 @@
 class EventsController < ApplicationController
   before_action :require_login, only: [:new, :edit, :create, :update, :destroy]
-  before_action "get_previous_url", only: [:show, :new, :edit]
+  # before_action "get_previous_url", only: [:show, :new, :edit]
+  before_action :load_nav
+  after_action  :set_nav, only: [:show]
 	helper_method :youtube_embed, :is_completed
 
   # Show all Events
@@ -87,22 +89,6 @@ class EventsController < ApplicationController
     html.html_safe
   end
 
-  # Save url navigated from
-  def get_previous_url
-    @url_params = Rails.application.routes.recognize_path(request.referer)
-    @prev_ctrl = @url_params[:controller]
-    if @prev_ctrl == "calendar"
-      @date_from_url ||= params[:date]
-      starttime_date ||= @date_from_url
-    else
-      @date_from_url ||= @url_params[:date]
-    end
-    #debug
-    puts @prev_ctrl
-    puts @url_params
-    puts @date_from_url
-  end
-
 	private
     # Validate event params when creating new
   	def event_params
@@ -122,5 +108,39 @@ class EventsController < ApplicationController
                                     :done_summary,
                                     :done_additional,
                                     :done_created_at)
+    end
+
+    # Load back navigatio path
+    def load_nav
+      url_params = Rails.application.routes.recognize_path(request.referer)
+      if url_params[:controller] == 'events' && url_params[:action] == 'show'
+        @nav_to = session[:nav_to] 
+      else
+        @nav_to = request.referrer
+      end
+      puts "NAV_TO load_nav -> #{@nav_to}"
+      if @nav_to == calendar_path
+        @date_from_url ||= params[:date]
+        starttime_date ||= @date_from_url
+      else
+        @date_from_url ||= url_params[:date]
+      end
+    end
+
+    # Save url navigated from
+    def set_nav
+      url_params = Rails.application.routes.recognize_path(request.referer)
+      puts "Url params: #{url_params}"
+      ctrl = url_params[:controller]
+      if ctrl != 'events' || (ctrl == 'events' && url_params[:action] != 'show')
+        case  ctrl
+        when 'calendar'
+          session[:nav_to] = calendar_path
+        when 'daily'
+          session[:nav_to] = daily_p_path(params[:date] || url_params[:date])
+        when 'events'
+          session[:nav_to] = events_path
+        end
+      end
     end
 end

@@ -13,7 +13,7 @@ class CalendarController < ApplicationController
 		#@events_by_date = Event.current_day(@date) # Should change to fetch month at a time ?
 		puts '----- Events: ------'
 		@events_by_date = Event.order(:starttime)
-		logger.debug @events_by_date.inspect
+		# logger.debug @events_by_date.inspect
 		puts '--------------------'
 
 	end

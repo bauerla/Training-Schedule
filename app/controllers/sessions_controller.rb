@@ -3,7 +3,6 @@ before_filter :store_last_location, only: [:new, :destroy]
 
   # Destroy Session
   def destroy
-    puts "paskaa housuissa  #{session[:return_to]}"
     sign_out
     redirect_to session[:return_to] || root_path
   end

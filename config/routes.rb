@@ -27,7 +27,7 @@ Rails.application.routes.draw do
 	get 'events/index'
 	get '/update_completed/:event_id' => 'events#event_done', as: 'update_completed'
 	get '/to_update_view/:ex_id' => 'exercises#update_view', as: 'to_update_view'
-	get 'daily/:date', to: 'daily#index'
+	get '/daily/:date', to: 'daily#index', as: 'daily_p'
 
 	root 'calendar#show'
 

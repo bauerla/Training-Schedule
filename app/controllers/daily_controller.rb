@@ -12,8 +12,6 @@ class DailyController < ApplicationController
       @events = Event.daily_events(@date.to_date)
       @date_string = parse_date(@date)
     end
-    puts @events.inspect
-    puts request.referer
   end
 
   private
