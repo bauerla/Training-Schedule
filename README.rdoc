@@ -19,23 +19,24 @@ This is a simple Rails application for scheduling Calendar Events, example for t
 
 ===Usage
 
-Cmd inside application folder:
+Command line in app folder:
 install gems
 * <tt>bundle install</tt>
 
-Create db with sample data - Events, Exercises(parts of Event), Comments, Videos for Events
+Create DB with sample data - Events, Exercises(parts of Event), Comments, Videos for Events
 * <tt>rake db:reseed</tt>
-else, only migrate
+otherwise, only migrate DB
 * <tt>rake db:migrate</tt>
 
-Run application (development)
+Run application (for development)
 * <tt>rails server</tt>
 
-===Some solutions in case of errors
+===Known issues
 =====Windows:
 
 <tt>rake db:reseed etc.</tt> -> "Errno::ENOENT: No such file or directory @ rb_sysopen - /dev/null" or something similar
 * Make change to Logger setting in <tt>quiet_assets.rb</tt> -> http://stackoverflow.com/a/12685159
+* Workaround pushed for this
 
 <tt>bundle install</tt> -> "The system cannot find the path specified"
 * possible fix http://stackoverflow.com/a/35680810 | in <tt>bundle.bat</tt> file (~/RailsInstaller/Ruby2.2.0/bin)
@@ -44,6 +45,9 @@ Run application (development)
 * Check that NodeJS is installed (x86 version preferred, even if x64 system)
 * Run <tt>npm install -g coffee-script</tt> to make sure coffee-script is properly installed
 
+=====Linux
+
+Currently Ruby version 2.1.x should be used to elimane deprecation warnings when migrating DB! for example version 2.1.10
 
 ===Notes
 
